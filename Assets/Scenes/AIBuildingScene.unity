@@ -299,22 +299,22 @@ PrefabInstance:
     - target: {fileID: 3960873380585940329, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
         type: 3}
       propertyPath: m_Name
-      value: Gaurd Model
+      value: Guard Model
       objectReference: {fileID: 0}
     - target: {fileID: 3960873380586436943, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.009716797
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3960873380586436943, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.99
+      value: -0.969
       objectReference: {fileID: 0}
     - target: {fileID: 3960873380586436943, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.18952027
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3960873380586436943, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
         type: 3}
@@ -334,7 +334,7 @@ PrefabInstance:
     - target: {fileID: 3960873380586436943, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.00000058114523
+      value: 0.0000007748604
       objectReference: {fileID: 0}
     - target: {fileID: 3960873380586436943, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
         type: 3}
@@ -393,7 +393,7 @@ GameObject:
   - component: {fileID: 609732276}
   - component: {fileID: 609732280}
   m_Layer: 0
-  m_Name: AIGaurd
+  m_Name: AIGuard
   m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -448,8 +448,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 609732275}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 404.1, y: 32.4, z: 896}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_LocalPosition: {x: 404.1, y: 9.9, z: 985.5}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 458463023}
   m_Father: {fileID: 0}
