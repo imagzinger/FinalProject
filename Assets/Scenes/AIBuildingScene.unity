@@ -668,6 +668,7 @@ MonoBehaviour:
   speedV: 2
   yaw: 0
   pitch: 0
+  player: {fileID: 254787460}
 --- !u!1 &2069535857
 GameObject:
   m_ObjectHideFlags: 0
