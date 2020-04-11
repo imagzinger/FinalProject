@@ -10,50 +10,65 @@ public class GuardBehavior : MonoBehaviour
     [SerializeField] Target target;
     [SerializeField] float distance;
     [SerializeField] Transform objective;
-    [SerializeField] ObjectScript objscript;
+    [SerializeField] ObjectiveScript objscript;
+    private Vector3 objectivePos;
     private bool punching;
+    private bool shooting;
+    private int frames = 0;
     //public float target.health = 100.0f;
     public int healthPacks = 1;
-    public float maxViewDistance = 200.0f;//maybe less???
+    public float maxViewDistance = 100.0f;//maybe less???
     public float meleeDistance = 50.0f;
     public float hitDistance = 25.0f;
     public float meleeDmg = 100;
     public Vector3 start;
+    public Vector3 start2;
     // Start is called before the first frame update
     void Start()
     {
         //playerTransform = player.Transform;
         start = transform.position;
+        start2 = new Vector3(transform.position.x+30, transform.position.y, transform.position.z);
+        objectivePos = objective.position;
         agent.speed = 50.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //MoveTo(playerTransform.position);
-        if (InRange(maxViewDistance))
+        //Debug.LogError(objscript.isTaken);
+        if (objscript.isTaken || InRange(maxViewDistance))
         {
-            MoveTo(playerTransform.position);
-            //Debug.LogError("i can see you");
-            if (target.health < 20.0f)
-                Heal();
-            else if (InRange(meleeDistance))
+            
+
+            //MoveTo(playerTransform.position);
+            if (InRange(maxViewDistance))
             {
-                //Debug.LogError("IN RANGEEEEE");
-                Invoke("Melee", 2.0f);
+                MoveTo(playerTransform.position);
+                //Debug.LogError(objscript.isTaken);
+                if (target.health < 20.0f)
+                    Heal();
+                else if (InRange(meleeDistance))
+                {
+                    //Debug.LogError("IN RANGEEEEE");
+                    Invoke("Melee", 2.0f);
+                }
+                else
+                    Attack();
             }
             else if (objscript.isTaken)
             {
-                MoveTo(objective.Transform.position);
+                Debug.LogError(objectivePos);
+                MoveTo(objectivePos);
             }
-            else
-                Attack();
         }
         else
         {
-            MoveTo(start);
+            Return();
             Idle();
+            //StartCoroutine("Idle");
         }
+        frames++;
     }
 
     // returns TRUE if the distance between the PLAYER and THIS is less than DIST otherwise returns false
@@ -89,7 +104,12 @@ public class GuardBehavior : MonoBehaviour
         target.health += 20;
     }
     void Idle() 
-    { 
+    {
+        agent.destination = start;
+        agent.destination = start2;
+        //MoveTo(start);
+        //yield return new WairForSeconds(5.0f);
+        //MoveTo(start2);
         //some animation
     }
     void Melee() 
@@ -110,9 +130,13 @@ public class GuardBehavior : MonoBehaviour
     }
     void MoveTo(Vector3 vector)
     {
+        Debug.LogError("Setting destination:"+vector);
         agent.SetDestination(vector);
     }
-
+    void Return()
+    {
+        MoveTo(start);
+    }
     IEnumerator PunchingPlayer()
     {
         punching = true;
@@ -125,18 +149,32 @@ public class GuardBehavior : MonoBehaviour
     }
     void Attack()
     {
-        //shoot at the player
-        if (InRange(meleeDistance * 2))
-        { 
-            //back up
-            //animation walkBackwards
-            if (InRange(meleeDistance))
-            { 
-                //animation melee?
-            }
-
+        if (frames % 120 == 0)
+        {
+            Shoot();
         }
+        //shoot at the player
+        //if (InRange(meleeDistance * 2))
+        //{ 
+        //    //back up
+        //    //animation walkBackwards
+        //    if (InRange(meleeDistance))
+        //    { 
+        //        //animation melee?
+        //    }
+
+        //}
         //gun.Shoot();
+    }
+    void Shoot()
+    {
+        
+        //shooting = true;
+        //yield return new WaitForSeconds(1.0f);
+        player.health -= 10;
+            
+        
+        //shooting = false;
     }
 
 }
