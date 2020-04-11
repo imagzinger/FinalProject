@@ -2,7 +2,7 @@
 using UnityEngine.AI;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour
+public class clickingraycast : MonoBehaviour
 {
 	
 	[SerializeField] Camera cam;
