@@ -9,6 +9,8 @@ public class GuardBehavior : MonoBehaviour
     [SerializeField] UnityEngine.AI.NavMeshAgent agent;
     [SerializeField] Target target;
     [SerializeField] float distance;
+    [SerializeField] Transform objective;
+    [SerializeField] ObjectScript objscript;
     private bool punching;
     //public float target.health = 100.0f;
     public int healthPacks = 1;
@@ -38,7 +40,11 @@ public class GuardBehavior : MonoBehaviour
             else if (InRange(meleeDistance))
             {
                 //Debug.LogError("IN RANGEEEEE");
-                Invoke("Melee",2.0f);
+                Invoke("Melee", 2.0f);
+            }
+            else if (objscript.isTaken)
+            {
+                MoveTo(objective.Transform.position);
             }
             else
                 Attack();
