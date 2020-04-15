@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 	public Collider body;
 	public Collider mesh;
 	public float health = 500.0f;
-
+	public float speed = .1f;
 	
 	//[SerializeField] float eulerAngX;
 	////[SerializeField] float eulerAngY;
@@ -24,8 +24,8 @@ public class PlayerController : MonoBehaviour
 		//eulerAngY = transform.localRotation.eulerAngles.y;
 		//eulerAngZ = transform.localRotation.eulerAngles.z;// transform.localEulerAngles.z;
 		degrees = transform.localRotation.eulerAngles.y;
-		zOffset = 5 * (float)Math.Cos((degrees) / 180 * Math.PI);
-		xOffset = 5 * (float)Math.Sin((degrees) / 180 * Math.PI);
+		zOffset = speed * (float)Math.Cos((degrees) / 180 * Math.PI);
+		xOffset = speed * (float)Math.Sin((degrees) / 180 * Math.PI);
 
 		if (Input.GetKey(KeyCode.W))
 		{
