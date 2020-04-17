@@ -11,23 +11,32 @@ public class LookingDirection : MonoBehaviour
     public float yaw = 0.0f;
     public float pitch = 0.0f;
 
+    public bool paused = false;
+
     [SerializeField] Transform player;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;   
     }
 
     // Update is called once per frame
     void Update()
     {
-        yaw += speedH * Input.GetAxis("Mouse X");
-        pitch -= speedV * Input.GetAxis("Mouse Y");
+        if (!paused)
+        {
+            yaw += speedH * Input.GetAxis("Mouse X");
+            pitch -= speedV * Input.GetAxis("Mouse Y");
 
-        player.eulerAngles = new Vector3(0.0f, yaw, 0.0f);
-        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+            player.eulerAngles = new Vector3(0.0f, yaw, 0.0f);
+            transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+        }
+    }
 
+    public void SetPause(bool val)
+    {
+        paused = val;
     }
 
 }
