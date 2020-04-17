@@ -30,7 +30,7 @@ public class GuardBehavior : MonoBehaviour
         start = transform.position;
         start2 = new Vector3(transform.position.x+30, transform.position.y, transform.position.z);
         objectivePos = objective.position;
-        agent.speed = 50.0f;
+        agent.speed = 10.0f;
     }
 
     // Update is called once per frame
