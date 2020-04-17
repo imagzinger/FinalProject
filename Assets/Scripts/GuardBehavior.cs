@@ -58,7 +58,7 @@ public class GuardBehavior : MonoBehaviour
             }
             else if (objscript.isTaken)
             {
-                Debug.LogError(objectivePos);
+                //Debug.LogError(objectivePos);
                 MoveTo(objectivePos);
             }
         }
@@ -130,7 +130,7 @@ public class GuardBehavior : MonoBehaviour
     }
     void MoveTo(Vector3 vector)
     {
-        Debug.LogError("Setting destination:"+vector);
+        //Debug.LogError("Setting destination:"+vector);
         agent.SetDestination(vector);
     }
     void Return()
