@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     public void UnPause() {
         pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         camera.GetComponent<LookingDirection>().SetPause(false);
         gamePaused = false;
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
 
     public void Pause() {
         pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
         camera.GetComponent<LookingDirection>().SetPause(true);
         gamePaused = true;
