@@ -641,7 +641,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254787456}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9641, y: -11, z: 7935}
+  m_LocalPosition: {x: -9641, y: 62, z: 7935}
   m_LocalScale: {x: 150, y: 150, z: 150}
   m_Children:
   - {fileID: 963194228}
@@ -669,7 +669,7 @@ MonoBehaviour:
   body: {fileID: 254787457}
   mesh: {fileID: 0}
   health: 500
-  speed: 0.1
+  speed: 0.2
 --- !u!54 &254787462
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7312,6 +7312,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1694579423}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &1042672927
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042672926}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4579454407841743219, guid: 4791f13ff34ceff45a6dc47290f4954a, type: 3}
 --- !u!114 &1042672930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7341,20 +7355,6 @@ MonoBehaviour:
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: 07e31df1c73315b4c8917d082234fb1a, type: 2}
---- !u!64 &1042672931
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1042672926}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: -462981019419857548, guid: 4791f13ff34ceff45a6dc47290f4954a, type: 3}
 --- !u!1 &1068892251
 GameObject:
   m_ObjectHideFlags: 0
