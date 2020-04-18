@@ -8,13 +8,13 @@ public class PlayerController : MonoBehaviour
 	public float degrees;
 	public float zOffset;
 	public float xOffset;
-
+	[SerializeField] ObjectiveScript os;
 	public Collider head;
 	public Collider body;
 	public Collider mesh;
 	public float health = 500.0f;
 	public float speed = .1f;
-	
+	public bool hasObjective = false;
 	//[SerializeField] float eulerAngX;
 	////[SerializeField] float eulerAngY;
 	//[SerializeField] float eulerAngZ;
@@ -48,6 +48,6 @@ public class PlayerController : MonoBehaviour
 		{
 			gameObject.SetActive(false);
 		}
-		
+		hasObjective == os.isTaken;
 	}
 }
