@@ -48,5 +48,6 @@ public class PlayerController : MonoBehaviour
 		{
 			gameObject.SetActive(false);
 		}
+		
 	}
 }
