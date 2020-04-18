@@ -665,11 +665,13 @@ MonoBehaviour:
   degrees: 0
   zOffset: 0
   xOffset: 0
+  os: {fileID: 712278721}
   head: {fileID: 0}
   body: {fileID: 254787457}
   mesh: {fileID: 0}
   health: 500
   speed: 0.2
+  hasObjective: 0
 --- !u!54 &254787462
 Rigidbody:
   m_ObjectHideFlags: 0
