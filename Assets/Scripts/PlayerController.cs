@@ -48,6 +48,6 @@ public class PlayerController : MonoBehaviour
 		{
 			gameObject.SetActive(false);
 		}
-		hasObjective == os.isTaken;
+		hasObjective = os.isTaken;
 	}
 }
