@@ -11,6 +11,8 @@ public class Gun : MonoBehaviour
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] Text UIbullets;
     [SerializeField] Transform player;
+    [SerializeField] float recoilPower = .35f;
+    [SerializeField] float recoilTime = .15f;
     LookingDirection looking;
     RaycastHit hit;
     float damage = 45f;
@@ -51,7 +53,15 @@ public class Gun : MonoBehaviour
               target.TakeDamage(damage);
             }
          }
+        StartCoroutine(Recoil());
+    }
 
+    IEnumerator Recoil() {
+        looking.AddOffset(recoilPower);
+        yield return new WaitForSeconds(recoilTime);
+        looking.AddOffset(-recoilPower);
+        yield return new WaitForSeconds(recoilTime);
+        looking.AddOffset(0f);
     }
 
     IEnumerator Reload() {

@@ -28,7 +28,7 @@ public class LookingDirection : MonoBehaviour
         if (!paused)
         {
             yaw += speedH * Input.GetAxis("Mouse X");
-            pitch -= speedV * Input.GetAxis("Mouse Y");
+            pitch -= (speedV * Input.GetAxis("Mouse Y")) + offset;
 
             if (pitch > 90) {
                 pitch = 90f;
