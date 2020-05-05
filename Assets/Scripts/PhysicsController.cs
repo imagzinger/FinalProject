@@ -12,7 +12,6 @@ public class PhysicsController : MonoBehaviour
     {
         
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -25,7 +24,9 @@ public class PhysicsController : MonoBehaviour
         Vector3 left = new Vector3(transform.position.x - 0.25f, transform.position.y, transform.position.z);
         Vector3 right = new Vector3(transform.position.x + 0.25f, transform.position.y, transform.position.z);
 
-        if (Physics.Raycast(transform.position, Vector3.down, 0.3f) || Physics.Raycast(left, Vector3.down, 0.3f) || Physics.Raycast(right, Vector3.down, 0.3f))
+        if (Physics.Raycast(transform.position, Vector3.down, 0.3f) 
+            || Physics.Raycast( left, Vector3.down, 0.3f) 
+            || Physics.Raycast(right, Vector3.down, 0.3f))
         {
             return true;
         }
