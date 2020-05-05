@@ -10,6 +10,8 @@ public class Gun : MonoBehaviour
     [SerializeField] int ammo = 15;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] Text UIbullets;
+    [SerializeField] Transform player;
+    LookingDirection looking;
     RaycastHit hit;
     float damage = 45f;
     float range = 1000f;
@@ -18,7 +20,7 @@ public class Gun : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        looking = GetComponent<LookingDirection>();
     }
 
     // Update is called once per frame
@@ -48,8 +50,9 @@ public class Gun : MonoBehaviour
             {
               target.TakeDamage(damage);
             }
-         }   
-    } 
+         }
+
+    }
 
     IEnumerator Reload() {
 

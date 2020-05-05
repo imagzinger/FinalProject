@@ -12,6 +12,7 @@ public class LookingDirection : MonoBehaviour
     public float pitch = 0.0f;
 
     public bool paused = false;
+    private float offset = 0f;
 
     [SerializeField] Transform player;
 
@@ -29,9 +30,20 @@ public class LookingDirection : MonoBehaviour
             yaw += speedH * Input.GetAxis("Mouse X");
             pitch -= speedV * Input.GetAxis("Mouse Y");
 
+            if (pitch > 90) {
+                pitch = 90f;
+            }
+            if (pitch < -90) {
+                pitch = -90f;
+            }
+
             player.eulerAngles = new Vector3(0.0f, yaw, 0.0f);
             transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
         }
+    }
+
+    public void AddOffset(float offset) {
+        this.offset = offset;
     }
 
     public void SetPause(bool val)

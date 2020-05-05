@@ -42,7 +42,6 @@ public class PhysicsController : MonoBehaviour
 
         if (Physics.Raycast(transform.position, -transform.right, wallDistance) || Physics.Raycast(bottom, -transform.right, wallDistance) || Physics.Raycast(top, -transform.right, wallDistance))
         {
-            Debug.Log("Left Wall");
             return true;
         }
         else

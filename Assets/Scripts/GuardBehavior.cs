@@ -11,18 +11,20 @@ public class GuardBehavior : MonoBehaviour
     [SerializeField] float distance;
     [SerializeField] Transform objective;
     [SerializeField] ObjectiveScript objscript;
+    float fovAngle = 130;
     private Vector3 objectivePos;
     private bool punching;
     private bool shooting;
     private int frames = 0;
     //public float target.health = 100.0f;
     public int healthPacks = 1;
-    public float maxViewDistance = 100.0f;//maybe less???
+    public float maxViewDistance = 500.0f;//maybe less???
     public float meleeDistance = 50.0f;
     public float hitDistance = 25.0f;
     public float meleeDmg = 100;
     public Vector3 start;
     public Vector3 start2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -168,13 +170,38 @@ public class GuardBehavior : MonoBehaviour
     }
     void Shoot()
     {
-        
+
         //shooting = true;
         //yield return new WaitForSeconds(1.0f);
-        player.health -= 10;
+        if (PlayerInSight())
+        {
+            player.health -= 10;
+        }
+        
             
         
         //shooting = false;
+    }
+
+    //sends a ray from enemy to player, and returns whether or not they are in view
+    bool PlayerInSight()
+    {
+        Vector3 direction = player.transform.position - transform.position;
+        float angle = Vector3.Angle(direction, transform.forward);
+
+        if (angle < fovAngle * 0.5f)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, maxViewDistance))
+            {
+                if (hit.collider.gameObject == player)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
 }
