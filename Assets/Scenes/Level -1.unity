@@ -697,7 +697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ba05e9a0dbb924aa552231d90221cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallDistance: 0.6
+  wallDistance: 1.5
 --- !u!1 &265613274
 GameObject:
   m_ObjectHideFlags: 0
@@ -7246,6 +7246,7 @@ MonoBehaviour:
   ammo: 15
   muzzleFlash: {fileID: 488923026}
   UIbullets: {fileID: 1143693284}
+  player: {fileID: 254787460}
 --- !u!1 &972285110
 GameObject:
   m_ObjectHideFlags: 0

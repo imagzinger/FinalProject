@@ -9,12 +9,14 @@ public class PlayerController : MonoBehaviour
 	public float xOffset;
     PhysicsController physicsController;
     [SerializeField] ObjectiveScript os;
+    Camera camera;
 	//public Collider head;
 	//public Collider body;
 	//public Collider mesh;
 	public float health = 500.0f;
 	public float speed = .1f;
 	public bool hasObjective = false;
+    private bool isCrouched = false;
     //[SerializeField] float eulerAngX;
     ////[SerializeField] float eulerAngY;
     //[SerializeField] float eulerAngZ;
@@ -23,6 +25,7 @@ public class PlayerController : MonoBehaviour
     {
         physicsController = GetComponent<PhysicsController>();
         rb = GetComponent<Rigidbody>();
+        camera = Camera.main;
     }
 
     void Update()
@@ -36,6 +39,22 @@ public class PlayerController : MonoBehaviour
 
         //Debug.Log("X Offset: " + xOffset + ", Z Offset: " + zOffset);
         // Debug.Log("forward: " + transform.forward);
+
+        //crouch
+        if (Input.GetKey(KeyCode.LeftControl)) {
+            if (!isCrouched)
+            {
+                isCrouched = true;
+                camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y - 1f, camera.transform.position.z);
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftControl)) {
+            if (isCrouched) {
+                isCrouched = false;
+                camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y + 1f, camera.transform.position.z);
+            }
+        }
 
         if (Input.GetKey(KeyCode.W))
         {
