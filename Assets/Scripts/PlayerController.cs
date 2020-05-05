@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 public class PlayerController : MonoBehaviour
 {
-<<<<<<< Updated upstream
+
 	public Rigidbody rb;
 	public Transform t;
 	public float degrees;
@@ -16,32 +16,13 @@ public class PlayerController : MonoBehaviour
 	public Collider mesh;
 	public float health = 500.0f;
 	public float speed = .1f;
-<<<<<<< HEAD
+
 	public bool hasObjective = false;
-=======
-	
-=======
-	[SerializeField] Rigidbody rb;
-	[SerializeField] Transform t;
-	float degrees;
-	float zOffset;
-	float xOffset;
 	[SerializeField] Camera cam;
-	[SerializeField] ObjectiveScript os;
-	[SerializeField] Collider head;
-	[SerializeField] Collider body;
-	[SerializeField] Collider mesh;
-	public float health = 500.0f;
-	[SerializeField] float speed = .1f;
-	[SerializeField] bool hasObjective = false;
 	[SerializeField] GameObject crossHair;
 	[SerializeField] GameObject snipeHair;
 	private bool sniping = false;
->>>>>>> Stashed changes
->>>>>>> Jeremiah
-	//[SerializeField] float eulerAngX;
-	////[SerializeField] float eulerAngY;
-	//[SerializeField] float eulerAngZ;
+
 	float scroll = 1;
 	[SerializeField] float zoomSpeed  = 100.0f; 
 	void Update()
