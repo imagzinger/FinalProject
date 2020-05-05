@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections.Specialized;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class PlayerController : MonoBehaviour
 	public float xOffset;
     PhysicsController physicsController;
     [SerializeField] ObjectiveScript os;
+    [SerializeField] GameObject crossHair;
+    [SerializeField] GameObject scopedCross;
+    [SerializeField] GameObject gunObj;
+    [SerializeField] float jumpForce;
 	//public Collider head;
 	//public Collider body;
 	//public Collider mesh;
@@ -17,12 +22,14 @@ public class PlayerController : MonoBehaviour
 	public bool hasObjective = false;
     //[SerializeField] float eulerAngX;
     ////[SerializeField] float eulerAngY;
-    //[SerializeField] float eulerAngZ;
-
+    [SerializeField] Camera cam;
+    [SerializeField] float scroll = 0;
+    [SerializeField] int sensitiviy = 75;
     void Start()
     {
         physicsController = GetComponent<PhysicsController>();
         rb = GetComponent<Rigidbody>();
+        //cam = GetComponent<Camera>();
     }
 
     void Update()
@@ -33,7 +40,8 @@ public class PlayerController : MonoBehaviour
         degrees = transform.localRotation.eulerAngles.y;
         zOffset = speed * (float)Math.Cos((degrees) / 180 * Math.PI);
         xOffset = speed * (float)Math.Sin((degrees) / 180 * Math.PI);
-
+        scroll = Input.GetAxis("Mouse ScrollWheel");
+        cam.fieldOfView -= scroll * sensitiviy;
         //Debug.Log("X Offset: " + xOffset + ", Z Offset: " + zOffset);
         // Debug.Log("forward: " + transform.forward);
 
@@ -74,11 +82,34 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x - zOffset, transform.position.y, transform.position.z + xOffset);
         }
 
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+		}
+
+        if (cam.fieldOfView < 30)
+        {
+            UnityEngine.Debug.LogError(cam.fieldOfView);
+            gunObj.SetActive(false);
+            crossHair.SetActive(false);
+            scopedCross.SetActive(true);
+        }
+        else
+        {
+            UnityEngine.Debug.LogError(cam.fieldOfView);
+            gunObj.SetActive(true);
+            crossHair.SetActive(true);
+            scopedCross.SetActive(false);
+            if (cam.fieldOfView > 60)
+                cam.fieldOfView = 60;
+        }
+
         if (health <= 0)
         {
             //gameObject.SetActive(false);
         }
-
+        //jump struggling...
+        rb.AddForce(Vector3.down * 100f);
         rb.velocity = Vector3.zero;
         hasObjective = os.isTaken;
 	}
