@@ -13,11 +13,13 @@ public class Gun : MonoBehaviour
     [SerializeField] Transform player;
     [SerializeField] float recoilPower = .35f;
     [SerializeField] float recoilTime = .15f;
+    [SerializeField] Slider ammoSlider;
     LookingDirection looking;
     RaycastHit hit;
     float damage = 45f;
     float range = 1000f;
     bool isReloading = false;
+    bool canShoot = true;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +30,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1")) {
+        if (Input.GetButton("Fire1") && canShoot) {
             Shoot();       
         }
     }
@@ -58,19 +60,27 @@ public class Gun : MonoBehaviour
 
     IEnumerator Recoil() {
         looking.AddOffset(recoilPower);
+        canShoot = false;
         yield return new WaitForSeconds(recoilTime);
         looking.AddOffset(-recoilPower);
+        canShoot = true;
         yield return new WaitForSeconds(recoilTime);
         looking.AddOffset(0f);
     }
 
     IEnumerator Reload() {
-
-        UIbullets.text = "Reloading...";
+        UIbullets.text = "0";
         isReloading = true;
-        yield return new WaitForSeconds(4.5f);
+        ammoSlider.gameObject.SetActive(true);
+        for (int i = 0; i < 45; i++)
+        {
+            yield return new WaitForSeconds(.1f);
+            ammoSlider.value += 1;
+        }
         ammo = 15;
         UIbullets.text = ammo.ToString();
         isReloading = false;
+        ammoSlider.gameObject.SetActive(false);
+        ammoSlider.value = 0;
     }
 } 
