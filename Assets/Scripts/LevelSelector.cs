@@ -17,7 +17,8 @@ public class LevelSelector : MonoBehaviour
     }
 
     public void CharacterSelect(int characterClass) {
-        PlayerPrefs.SetInt("Class", characterClass);
+        GameObject gameManager = GameObject.FindWithTag("GameController");
+        gameManager.GetComponent<GameManager>().SetClass(characterClass);
         SceneManager.LoadScene(name);
     }
 

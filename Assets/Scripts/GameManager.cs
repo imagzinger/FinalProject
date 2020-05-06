@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
+    int characterClass = 0;
+
     public static GameManager gameManager = null;
 
     private void Awake()
@@ -33,4 +35,13 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    public void SetClass(int cClass) {
+        characterClass = cClass;
+    }
+
+    public int GetClass() {
+        return characterClass;
+    }
+
 }

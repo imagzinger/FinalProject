@@ -14,13 +14,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject scopedCross;
     [SerializeField] GameObject gunObj;
     [SerializeField] float jumpForce;
-
     Camera camera;
-
 	public float health = 500.0f;
 	float speed = 13f;
 	public bool hasObjective = false;
-    private bool isCrouched = false;
+    bool isCrouched = false;
+    int characterClass;
+    GameObject gameManager;
     //[SerializeField] float eulerAngX;
     ////[SerializeField] float eulerAngY;
     [SerializeField] float scroll = 0;
@@ -30,7 +30,19 @@ public class PlayerController : MonoBehaviour
         physicsController = GetComponent<PhysicsController>();
         rb = GetComponent<Rigidbody>();
         camera = Camera.main;
-
+        gameManager = GameObject.FindWithTag("GameController");
+        characterClass = gameManager.GetComponent<GameManager>().GetClass();
+        if (characterClass == 0) {
+            characterClass = 1;
+        }
+        if (characterClass == 1) {
+            health = 500f;
+            speed = 13f;
+        }
+        if (characterClass == 2) {
+            health = 800f;
+            speed = 7f;
+        }
     }
 
     void Update()

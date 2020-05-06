@@ -146,7 +146,6 @@ public class GuardBehavior : MonoBehaviour
         //Debug.LogError("punch");
         //punch animation???
         player.health -= meleeDmg;
-        Debug.Log("hello");
         yield return new WaitForSeconds(2.0f);
         punching = false;
     }
