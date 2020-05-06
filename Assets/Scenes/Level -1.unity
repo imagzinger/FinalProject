@@ -524,7 +524,6 @@ MonoBehaviour:
   gunObj: {fileID: 1726430706}
   jumpForce: 20
   health: 500
-  speed: 0.15
   hasObjective: 0
   scroll: 0
   sensitiviy: 75
@@ -5633,7 +5632,7 @@ GameObject:
   - component: {fileID: 609732282}
   m_Layer: 0
   m_Name: AIGuard
-  m_TagString: player
+  m_TagString: aigaurd
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5737,9 +5736,9 @@ MonoBehaviour:
   objscript: {fileID: 712278721}
   healthPacks: 1
   maxViewDistance: 200
-  meleeDistance: 50
+  meleeDistance: 10
   hitDistance: 25
-  meleeDmg: 20
+  meleeDmg: 100
   start: {x: 0, y: 0, z: 0}
   start2: {x: 0, y: 0, z: 0}
 --- !u!114 &609732282
@@ -6691,8 +6690,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7a93c34d321584daa23c0e0c9eb5c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedH: 2
-  speedV: 2
   yaw: 0
   pitch: 0
   paused: 0
@@ -7036,7 +7033,7 @@ GameObject:
   - component: {fileID: 1148766301}
   m_Layer: 0
   m_Name: AIGuard 1
-  m_TagString: player
+  m_TagString: aigaurd
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7090,9 +7087,9 @@ MonoBehaviour:
   objscript: {fileID: 712278721}
   healthPacks: 1
   maxViewDistance: 200
-  meleeDistance: 50
+  meleeDistance: 10
   hitDistance: 25
-  meleeDmg: 20
+  meleeDmg: 100
   start: {x: 0, y: 0, z: 0}
   start2: {x: 0, y: 0, z: 0}
 --- !u!195 &1148766303
@@ -8382,7 +8379,7 @@ GameObject:
   - component: {fileID: 2019984953}
   m_Layer: 0
   m_Name: AIGuard 2
-  m_TagString: player
+  m_TagString: aigaurd
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8436,9 +8433,9 @@ MonoBehaviour:
   objscript: {fileID: 712278721}
   healthPacks: 1
   maxViewDistance: 200
-  meleeDistance: 50
+  meleeDistance: 10
   hitDistance: 25
-  meleeDmg: 20
+  meleeDmg: 100
   start: {x: 0, y: 0, z: 0}
   start2: {x: 0, y: 0, z: 0}
 --- !u!195 &2019984955

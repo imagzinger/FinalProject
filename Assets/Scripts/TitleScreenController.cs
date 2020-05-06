@@ -16,7 +16,7 @@ public class TitleScreenController : MonoBehaviour
     void Start()
     {
         sensSlider.value = PlayerPrefs.GetFloat("Sens");
-        if (sensSlider.value == 0) {
+        if (sensSlider.value == .1) {
             sensSlider.value = 2f;
         }
     }

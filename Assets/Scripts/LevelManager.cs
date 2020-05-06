@@ -38,6 +38,12 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         camera.GetComponent<LookingDirection>().SetPause(false);
+        GameObject[] guards = GameObject.FindGameObjectsWithTag("aigaurd");
+        for(int i = 0; i < guards.Length; i++)
+        {
+            guards[i].GetComponent<GuardBehavior>().enabled = true;
+        }
+        GameObject.FindGameObjectWithTag("player").GetComponent<PlayerController>().enabled = true;
         gamePaused = false;
     }
 
@@ -47,6 +53,13 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
         camera.GetComponent<LookingDirection>().SetPause(true);
+        GameObject[] guards = GameObject.FindGameObjectsWithTag("aigaurd");
+        for (int i = 0; i < guards.Length; i++)
+        {
+            Debug.Log(i);
+            guards[i].GetComponent<GuardBehavior>().enabled = false;
+        }
+        GameObject.FindGameObjectWithTag("player").GetComponent<PlayerController>().enabled = false;
         gamePaused = true;
     }
 

@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     Camera camera;
 
 	public float health = 500.0f;
-	public float speed = .1f;
+	float speed = 13f;
 	public bool hasObjective = false;
     private bool isCrouched = false;
     //[SerializeField] float eulerAngX;
@@ -39,8 +39,8 @@ public class PlayerController : MonoBehaviour
         //eulerAngY = transform.localRotation.eulerAngles.y;
         //eulerAngZ = transform.localRotation.eulerAngles.z;// transform.localEulerAngles.z;
         degrees = transform.localRotation.eulerAngles.y;
-        zOffset = speed * (float)Math.Cos((degrees) / 180 * Math.PI);
-        xOffset = speed * (float)Math.Sin((degrees) / 180 * Math.PI);
+        zOffset = Time.deltaTime * speed * (float)Math.Cos((degrees) / 180 * Math.PI);
+        xOffset =  Time.deltaTime *speed * (float)Math.Sin((degrees) / 180 * Math.PI);
         scroll = Input.GetAxis("Mouse ScrollWheel");
         camera.fieldOfView -= scroll * sensitiviy;
         //Debug.Log("X Offset: " + xOffset + ", Z Offset: " + zOffset);
@@ -69,7 +69,8 @@ public class PlayerController : MonoBehaviour
                 xOffset = 0;
                 zOffset = 0;
             }
-            transform.position = new Vector3(transform.position.x + xOffset, transform.position.y, transform.position.z + zOffset);
+   
+            transform.position += new Vector3(xOffset, 0, zOffset);
         }
         if (Input.GetKey(KeyCode.S))
         {
@@ -78,7 +79,7 @@ public class PlayerController : MonoBehaviour
                 xOffset = 0;
                 zOffset = 0;
             }
-            transform.position = new Vector3(transform.position.x - xOffset, transform.position.y, transform.position.z - zOffset);
+            transform.position += new Vector3(-xOffset, 0, -zOffset);
         }
         if (Input.GetKey(KeyCode.D))
         {
@@ -87,7 +88,7 @@ public class PlayerController : MonoBehaviour
                 xOffset = 0;
                 zOffset = 0;
             }
-            transform.position = new Vector3(transform.position.x + zOffset, transform.position.y, transform.position.z - xOffset);
+            transform.position += new Vector3(zOffset, 0, -xOffset);
         }
         if (Input.GetKey(KeyCode.A))
         {
@@ -96,7 +97,7 @@ public class PlayerController : MonoBehaviour
                 xOffset = 0;
                 zOffset = 0;
             }
-            transform.position = new Vector3(transform.position.x - zOffset, transform.position.y, transform.position.z + xOffset);
+            transform.position += new Vector3(-zOffset, 0, xOffset);
         }
 
 		if (Input.GetKeyDown(KeyCode.Space))
@@ -106,14 +107,12 @@ public class PlayerController : MonoBehaviour
 
         if (camera.fieldOfView < 30)
         {
-            UnityEngine.Debug.LogError(camera.fieldOfView);
             gunObj.SetActive(false);
             crossHair.SetActive(false);
             scopedCross.SetActive(true);
         }
         else
         {
-            UnityEngine.Debug.LogError(camera.fieldOfView);
             gunObj.SetActive(true);
             crossHair.SetActive(true);
             scopedCross.SetActive(false);
