@@ -107,14 +107,14 @@ public class PlayerController : MonoBehaviour
 
         if (cam.fieldOfView < 30)
         {
-            UnityEngine.Debug.LogError(cam.fieldOfView);
+            //UnityEngine.Debug.LogError(cam.fieldOfView);
             gunObj.SetActive(false);
             crossHair.SetActive(false);
             scopedCross.SetActive(true);
         }
         else
         {
-            UnityEngine.Debug.LogError(cam.fieldOfView);
+            //UnityEngine.Debug.LogError(cam.fieldOfView);
             gunObj.SetActive(true);
             crossHair.SetActive(true);
             scopedCross.SetActive(false);
@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour
             //gameObject.SetActive(false);
         }
         //jump struggling...
-        rb.AddForce(Vector3.down * 100f);
+        rb.AddForce(Vector3.down * 1000000f);
         rb.velocity = Vector3.zero;
         hasObjective = os.isTaken;
 	}

@@ -33,6 +33,7 @@ public class GuardBehavior : MonoBehaviour
         start2 = new Vector3(transform.position.x+30, transform.position.y, transform.position.z);
         objectivePos = objective.position;
         agent.speed = 10.0f;
+        objscript = GameObject.FindGameObjectWithTag("objective").GetComponent<ObjectiveScript>();
     }
 
     // Update is called once per frame
