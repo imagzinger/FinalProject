@@ -15,7 +15,10 @@ public class TitleScreenController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sensSlider.value = 2f;
+        sensSlider.value = PlayerPrefs.GetFloat("Sens");
+        if (sensSlider.value == 0) {
+            sensSlider.value = 2f;
+        }
     }
 
     // Update is called once per frame
