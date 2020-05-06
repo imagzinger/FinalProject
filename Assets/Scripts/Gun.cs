@@ -91,4 +91,8 @@ public class Gun : MonoBehaviour
         ammoSlider.gameObject.SetActive(false);
         ammoSlider.value = 0;
     }
+
+    public void SetRecoil(float recoil) {
+        recoilPower = recoil;
+    }
 }

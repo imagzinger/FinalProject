@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour
             {
                 isCrouched = true;
                 camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y - 1f, camera.transform.position.z);
+                camera.GetComponent<Gun>().SetRecoil(.15f);
             }
         }
 
@@ -72,6 +73,7 @@ public class PlayerController : MonoBehaviour
             if (isCrouched) {
                 isCrouched = false;
                 camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y + 1f, camera.transform.position.z);
+                camera.GetComponent<Gun>().SetRecoil(.25f);
             }
         }
 
