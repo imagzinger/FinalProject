@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject gameOverMenu;
     Camera camera;
     bool gamePaused = false;
 
@@ -72,5 +73,16 @@ public class LevelManager : MonoBehaviour
         }
         GameObject.FindGameObjectWithTag("player").GetComponent<PlayerController>().enabled = true;
         SceneManager.LoadScene("Title");
+    }
+
+    public void RestartLevel() {
+        UnPause();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void GameOver() {
+        Pause();
+        pauseMenu.SetActive(false);
+        gameOverMenu.SetActive(true);
     }
 }

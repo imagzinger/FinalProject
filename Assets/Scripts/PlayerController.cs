@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject crossHair;
     [SerializeField] GameObject scopedCross;
     [SerializeField] GameObject gunObj;
+    [SerializeField] LevelManager levelManager;
     [SerializeField] float jumpForce;
     Camera camera;
 	public float health = 500.0f;
@@ -134,7 +135,7 @@ public class PlayerController : MonoBehaviour
 
         if (health <= 0)
         {
-            //gameObject.SetActive(false);
+            levelManager.GameOver();   
         }
         //jump struggling...
         rb.AddForce(Vector3.down * 100f);
