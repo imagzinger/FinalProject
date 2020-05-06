@@ -18,7 +18,7 @@ public class TitleScreenController : MonoBehaviour
     }
 
     public void StartGame() {
-        SceneManager.LoadScene("Level -1");
+        SceneManager.LoadScene("LevelSelect");
     }
 
     public void QuitGame()
