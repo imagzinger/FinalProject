@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
     private bool isCrouched = false;
     //[SerializeField] float eulerAngX;
     ////[SerializeField] float eulerAngY;
-    [SerializeField] Camera cam;
     [SerializeField] float scroll = 0;
     [SerializeField] int sensitiviy = 75;
     void Start()
@@ -43,7 +42,7 @@ public class PlayerController : MonoBehaviour
         zOffset = speed * (float)Math.Cos((degrees) / 180 * Math.PI);
         xOffset = speed * (float)Math.Sin((degrees) / 180 * Math.PI);
         scroll = Input.GetAxis("Mouse ScrollWheel");
-        cam.fieldOfView -= scroll * sensitiviy;
+        camera.fieldOfView -= scroll * sensitiviy;
         //Debug.Log("X Offset: " + xOffset + ", Z Offset: " + zOffset);
         // Debug.Log("forward: " + transform.forward);
 
@@ -105,21 +104,21 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 		}
 
-        if (cam.fieldOfView < 30)
+        if (camera.fieldOfView < 30)
         {
-            UnityEngine.Debug.LogError(cam.fieldOfView);
+            UnityEngine.Debug.LogError(camera.fieldOfView);
             gunObj.SetActive(false);
             crossHair.SetActive(false);
             scopedCross.SetActive(true);
         }
         else
         {
-            UnityEngine.Debug.LogError(cam.fieldOfView);
+            UnityEngine.Debug.LogError(camera.fieldOfView);
             gunObj.SetActive(true);
             crossHair.SetActive(true);
             scopedCross.SetActive(false);
-            if (cam.fieldOfView > 60)
-                cam.fieldOfView = 60;
+            if (camera.fieldOfView > 60)
+                camera.fieldOfView = 60;
         }
 
         if (health <= 0)
