@@ -21,6 +21,7 @@ public class Target : MonoBehaviour
 
     void SpawnNew()
     {
+        health = 100f;
         gameObject.transform.position = objective.position;
         gameObject.SetActive(true);
     }
