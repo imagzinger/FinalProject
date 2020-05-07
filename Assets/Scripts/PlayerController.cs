@@ -13,17 +13,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject crossHair;
     [SerializeField] GameObject scopedCross;
     [SerializeField] GameObject gunObj;
+    [SerializeField] LevelManager levelManager;
     [SerializeField] float jumpForce;
-
     Camera camera;
-
 	public float health = 500.0f;
-	public float speed = .1f;
+	float speed = 13f;
 	public bool hasObjective = false;
-    private bool isCrouched = false;
+    bool isCrouched = false;
+    int characterClass;
+    GameObject gameManager;
     //[SerializeField] float eulerAngX;
     ////[SerializeField] float eulerAngY;
-    [SerializeField] Camera cam;
     [SerializeField] float scroll = 0;
     [SerializeField] int sensitiviy = 75;
     void Start()
@@ -31,7 +31,19 @@ public class PlayerController : MonoBehaviour
         physicsController = GetComponent<PhysicsController>();
         rb = GetComponent<Rigidbody>();
         camera = Camera.main;
-
+        gameManager = GameObject.FindWithTag("GameController");
+        characterClass = gameManager.GetComponent<GameManager>().GetClass();
+        if (characterClass == 0) {
+            characterClass = 1;
+        }
+        if (characterClass == 1) {
+            health = 500f;
+            speed = 13f;
+        }
+        if (characterClass == 2) {
+            health = 800f;
+            speed = 7f;
+        }
     }
 
     void Update()
@@ -40,10 +52,10 @@ public class PlayerController : MonoBehaviour
         //eulerAngY = transform.localRotation.eulerAngles.y;
         //eulerAngZ = transform.localRotation.eulerAngles.z;// transform.localEulerAngles.z;
         degrees = transform.localRotation.eulerAngles.y;
-        zOffset = speed * (float)Math.Cos((degrees) / 180 * Math.PI);
-        xOffset = speed * (float)Math.Sin((degrees) / 180 * Math.PI);
+        zOffset = Time.deltaTime * speed * (float)Math.Cos((degrees) / 180 * Math.PI);
+        xOffset =  Time.deltaTime *speed * (float)Math.Sin((degrees) / 180 * Math.PI);
         scroll = Input.GetAxis("Mouse ScrollWheel");
-        cam.fieldOfView -= scroll * sensitiviy;
+        camera.fieldOfView -= scroll * sensitiviy;
         //Debug.Log("X Offset: " + xOffset + ", Z Offset: " + zOffset);
         // Debug.Log("forward: " + transform.forward);
 
@@ -53,6 +65,7 @@ public class PlayerController : MonoBehaviour
             {
                 isCrouched = true;
                 camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y - 1f, camera.transform.position.z);
+                camera.GetComponent<Gun>().SetRecoil(.15f);
             }
         }
 
@@ -60,6 +73,7 @@ public class PlayerController : MonoBehaviour
             if (isCrouched) {
                 isCrouched = false;
                 camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y + 1f, camera.transform.position.z);
+                camera.GetComponent<Gun>().SetRecoil(.25f);
             }
         }
 
@@ -70,7 +84,8 @@ public class PlayerController : MonoBehaviour
                 xOffset = 0;
                 zOffset = 0;
             }
-            transform.position = new Vector3(transform.position.x + xOffset, transform.position.y, transform.position.z + zOffset);
+
+            transform.position += new Vector3(xOffset, 0, zOffset);
         }
         if (Input.GetKey(KeyCode.S))
         {
@@ -79,7 +94,7 @@ public class PlayerController : MonoBehaviour
                 xOffset = 0;
                 zOffset = 0;
             }
-            transform.position = new Vector3(transform.position.x - xOffset, transform.position.y, transform.position.z - zOffset);
+            transform.position += new Vector3(-xOffset, 0, -zOffset);
         }
         if (Input.GetKey(KeyCode.D))
         {
@@ -88,7 +103,7 @@ public class PlayerController : MonoBehaviour
                 xOffset = 0;
                 zOffset = 0;
             }
-            transform.position = new Vector3(transform.position.x + zOffset, transform.position.y, transform.position.z - xOffset);
+            transform.position += new Vector3(zOffset, 0, -xOffset);
         }
         if (Input.GetKey(KeyCode.A))
         {
@@ -97,7 +112,7 @@ public class PlayerController : MonoBehaviour
                 xOffset = 0;
                 zOffset = 0;
             }
-            transform.position = new Vector3(transform.position.x - zOffset, transform.position.y, transform.position.z + xOffset);
+            transform.position += new Vector3(-zOffset, 0, xOffset);
         }
 
 		if (Input.GetKeyDown(KeyCode.Space))
@@ -105,26 +120,24 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 		}
 
-        if (cam.fieldOfView < 30)
+        if (camera.fieldOfView < 30)
         {
-            //UnityEngine.Debug.LogError(cam.fieldOfView);
             gunObj.SetActive(false);
             crossHair.SetActive(false);
             scopedCross.SetActive(true);
         }
         else
         {
-            //UnityEngine.Debug.LogError(cam.fieldOfView);
             gunObj.SetActive(true);
             crossHair.SetActive(true);
             scopedCross.SetActive(false);
-            if (cam.fieldOfView > 60)
-                cam.fieldOfView = 60;
+            if (camera.fieldOfView > 60)
+                camera.fieldOfView = 60;
         }
 
         if (health <= 0)
         {
-            //gameObject.SetActive(false);
+            levelManager.GameOver();
         }
         //jump struggling...
         rb.AddForce(Vector3.down * 1000000f);

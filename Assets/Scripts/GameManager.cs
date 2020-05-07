@@ -6,47 +6,42 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] GameObject pauseMenu;
-    Camera camera;
-    bool gamePaused = false;
+
+    int characterClass = 0;
+
+    public static GameManager gameManager = null;
+
+    private void Awake()
+    {
+        if (gameManager != null && gameManager != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            gameManager = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        camera = Camera.main;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("escape")) {
-            if (gamePaused)
-            {
-                UnPause();
-            }
-            else {
-                Pause();
-            }
-        }
+        
     }
 
-    public void UnPause() {
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1f;
-        Cursor.lockState = CursorLockMode.Locked;
-        camera.GetComponent<LookingDirection>().SetPause(false);
-        gamePaused = false;
+    public void SetClass(int cClass) {
+        characterClass = cClass;
     }
 
-    public void Pause() {
-        pauseMenu.SetActive(true);
-        Time.timeScale = 0f;
-        Cursor.lockState = CursorLockMode.None;
-        camera.GetComponent<LookingDirection>().SetPause(true);
-        gamePaused = true;
+    public int GetClass() {
+        return characterClass;
     }
 
-    public void BackToMainMenu() {
-        SceneManager.LoadScene("Title");
-    }
 }

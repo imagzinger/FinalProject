@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class LookingDirection : MonoBehaviour
 {
-    public float speedH = 2.0f;
-    public float speedV = 2.0f;
+    float speedH = 2.0f;
+    float speedV = 2.0f;
 
     public float yaw = 0.0f;
     public float pitch = 0.0f;
@@ -19,7 +19,9 @@ public class LookingDirection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;   
+        Cursor.lockState = CursorLockMode.Locked;
+        speedH = PlayerPrefs.GetFloat("Sens");
+        speedV = PlayerPrefs.GetFloat("Sens");
     }
 
     // Update is called once per frame
@@ -28,7 +30,7 @@ public class LookingDirection : MonoBehaviour
         if (!paused)
         {
             yaw += speedH * Input.GetAxis("Mouse X");
-            pitch -= speedV * Input.GetAxis("Mouse Y");
+            pitch -= (speedV * Input.GetAxis("Mouse Y")) + offset;
 
             if (pitch > 90) {
                 pitch = 90f;

@@ -19,7 +19,7 @@ public class GuardBehavior : MonoBehaviour
     //public float target.health = 100.0f;
     public int healthPacks = 1;
     public float maxViewDistance = 500.0f;//maybe less???
-    public float meleeDistance = 50.0f;
+    public float meleeDistance = 10.0f;
     public float hitDistance = 25.0f;
     public float meleeDmg = 100;
     public Vector3 start;
@@ -51,7 +51,7 @@ public class GuardBehavior : MonoBehaviour
                 //Debug.LogError(objscript.isTaken);
                 if (target.health < 20.0f)
                     Heal();
-                else if (InRange(meleeDistance))
+                else if (InRange(meleeDistance) && PlayerInSight())
                 {
                     //Debug.LogError("IN RANGEEEEE");
                     Invoke("Melee", 2.0f);
@@ -174,12 +174,11 @@ public class GuardBehavior : MonoBehaviour
 
         //shooting = true;
         //yield return new WaitForSeconds(1.0f);
+       // Debug.Log(PlayerInSight());
         if (PlayerInSight())
         {
-            player.health -= 10;
+            player.health -= 25;
         }
-        
-            
         
         //shooting = false;
     }
@@ -187,15 +186,16 @@ public class GuardBehavior : MonoBehaviour
     //sends a ray from enemy to player, and returns whether or not they are in view
     bool PlayerInSight()
     {
+        
         Vector3 direction = player.transform.position - transform.position;
         float angle = Vector3.Angle(direction, transform.forward);
 
         if (angle < fovAngle * 0.5f)
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, maxViewDistance))
+            if (Physics.Raycast(transform.position, direction.normalized, out hit, maxViewDistance))
             {
-                if (hit.collider.gameObject == player)
+                if (hit.collider.gameObject == player.gameObject)
                 {
                     return true;
                 }
