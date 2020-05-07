@@ -7,7 +7,7 @@ public class ObjectiveScript : MonoBehaviour
 
     public bool isTaken = false;
 
-    void OnTriggerEnter(Collider othe)
+    void OnTriggerEnter(Collider other)
     {
         isTaken = true;
         gameObject.SetActive(false);
