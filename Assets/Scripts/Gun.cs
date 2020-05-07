@@ -13,8 +13,8 @@ public class Gun : MonoBehaviour
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] Text UIbullets;
     [SerializeField] Transform player;
-    [SerializeField] float recoilPower = .35f;
-    [SerializeField] float recoilTime = .15f;
+    public float recoilPower = .35f;
+    public float recoilTime = .15f;
     [SerializeField] Slider ammoSlider;
     LookingDirection looking;
     RaycastHit hit;
@@ -69,12 +69,15 @@ public class Gun : MonoBehaviour
     IEnumerator Recoil()
     {
         looking.AddOffset(recoilPower);
+        fpsCam.fieldOfView += 4 * recoilPower;
         canShoot = false;
         yield return new WaitForSeconds(recoilTime);
         looking.AddOffset(-recoilPower);
+        fpsCam.fieldOfView -= 4 * recoilPower;
         canShoot = true;
         yield return new WaitForSeconds(recoilTime);
         looking.AddOffset(0f);
+        
     }
 
     IEnumerator Reload()

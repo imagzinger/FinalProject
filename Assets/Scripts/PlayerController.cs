@@ -51,6 +51,8 @@ public class PlayerController : MonoBehaviour
             speed = 7f;
             gunScript.ammo = 2;
             gunScript.initAmmo = 2;
+            gunScript.recoilTime = .15f;
+            gunScript.recoilPower = .8f;
             gunScript.damage = 80f;
             gunScript.range = 100f;
         }
@@ -60,6 +62,8 @@ public class PlayerController : MonoBehaviour
             speed = 16f;
             gunScript.ammo = 1;
             gunScript.initAmmo = 1;
+            gunScript.recoilTime = .10f;
+            gunScript.recoilPower = 5f;
             gunScript.damage = 150f;
             gunScript.range = 1000f;
         }
@@ -84,7 +88,7 @@ public class PlayerController : MonoBehaviour
             {
                 isCrouched = true;
                 camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y - 1f, camera.transform.position.z);
-                camera.GetComponent<Gun>().SetRecoil(.15f);
+                gunScript.recoilPower -= (gunScript.recoilPower * 2 / 3);
             }
         }
 
@@ -92,7 +96,7 @@ public class PlayerController : MonoBehaviour
             if (isCrouched) {
                 isCrouched = false;
                 camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y + 1f, camera.transform.position.z);
-                camera.GetComponent<Gun>().SetRecoil(.25f);
+                gunScript.recoilPower += (gunScript.recoilPower * 2 / 3);
             }
         }
 
