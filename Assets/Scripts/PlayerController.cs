@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
         if (characterClass == 0) {
             characterClass = 1;
         }
-        characterClass = 3;
+        //characterClass = 3;
         if (characterClass == 1) {
             health = 500f;
             speed = 13f;
