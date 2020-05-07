@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,8 @@ public class Gun : MonoBehaviour
 
     [SerializeField] Camera fpsCam;
     [SerializeField] Target target;
-    [SerializeField] int ammo = 15;
+    public int ammo = 15;
+    public int initAmmo = 15;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] Text UIbullets;
     [SerializeField] Transform player;
@@ -16,8 +18,8 @@ public class Gun : MonoBehaviour
     [SerializeField] Slider ammoSlider;
     LookingDirection looking;
     RaycastHit hit;
-    float damage = 45f;
-    float range = 1000f;
+    public float damage = 45f;
+    public float range = 1000f;
     bool isReloading = false;
     bool canShoot = true;
 
@@ -85,7 +87,7 @@ public class Gun : MonoBehaviour
             yield return new WaitForSeconds(.1f);
             ammoSlider.value += 1;
         }
-        ammo = 15;
+        ammo = initAmmo;
         UIbullets.text = ammo.ToString();
         isReloading = false;
         ammoSlider.gameObject.SetActive(false);

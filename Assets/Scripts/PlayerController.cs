@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject gunObj;
     [SerializeField] LevelManager levelManager;
     [SerializeField] float jumpForce;
+    Gun gunScript;
     Camera camera;
 	public float health = 500.0f;
 	float speed = 13f;
@@ -33,16 +34,34 @@ public class PlayerController : MonoBehaviour
         camera = Camera.main;
         gameManager = GameObject.FindWithTag("GameController");
         characterClass = gameManager.GetComponent<GameManager>().GetClass();
+        gunScript = camera.GetComponent<Gun>();
         if (characterClass == 0) {
             characterClass = 1;
         }
+        characterClass = 3;
         if (characterClass == 1) {
             health = 500f;
             speed = 13f;
+            gunScript.ammo = 15;
+            gunScript.initAmmo = 15;
+            gunScript.damage = 35f;
         }
-        if (characterClass == 2) {
+        else if (characterClass == 2) {
             health = 800f;
             speed = 7f;
+            gunScript.ammo = 2;
+            gunScript.initAmmo = 2;
+            gunScript.damage = 80f;
+            gunScript.range = 100f;
+        }
+        else if (characterClass == 3)// sniper
+        {
+            health = 300f;
+            speed = 16f;
+            gunScript.ammo = 1;
+            gunScript.initAmmo = 1;
+            gunScript.damage = 150f;
+            gunScript.range = 1000f;
         }
     }
 
