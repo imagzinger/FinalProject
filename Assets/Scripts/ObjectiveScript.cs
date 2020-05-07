@@ -9,7 +9,10 @@ public class ObjectiveScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        isTaken = true;
-        gameObject.SetActive(false);
+        if (other.gameObject.tag == "player")
+        {
+            isTaken = true;
+            gameObject.SetActive(false);
+        }
     }
 }
