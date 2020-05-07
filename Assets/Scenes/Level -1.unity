@@ -775,6 +775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  objective: {fileID: 712278725}
 --- !u!1 &702043177
 GameObject:
   m_ObjectHideFlags: 0
@@ -2022,6 +2023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  objective: {fileID: 712278725}
 --- !u!114 &1148766302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3800,6 +3802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  objective: {fileID: 712278725}
 --- !u!114 &2019984954
 MonoBehaviour:
   m_ObjectHideFlags: 0
