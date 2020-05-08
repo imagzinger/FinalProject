@@ -17,13 +17,11 @@ public class Gun : MonoBehaviour
     public float recoilTime = .15f;
     [SerializeField] Slider ammoSlider;
     LookingDirection looking;
-    Target target;
     RaycastHit hit;
     public float damage = 45f;
     public float range = 1000f;
     bool isReloading = false;
     bool canShoot = true;
-    bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -63,7 +61,6 @@ public class Gun : MonoBehaviour
             target = hit.transform.GetComponent<Target>();
             if (target != null)
             {
-                Debug.Log(target.name);
                 target.TakeDamage(damage);
             }
         }
@@ -81,7 +78,7 @@ public class Gun : MonoBehaviour
         canShoot = true;
         yield return new WaitForSeconds(recoilTime);
         looking.AddOffset(0f);
-
+        
     }
 
     IEnumerator Reload()

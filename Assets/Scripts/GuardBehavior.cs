@@ -11,15 +11,10 @@ public class GuardBehavior : MonoBehaviour
     [SerializeField] float distance;
     [SerializeField] Transform objective;
     [SerializeField] ObjectiveScript objscript;
-    Animator animator;
     float fovAngle = 130;
     private Vector3 objectivePos;
     private bool punching;
     private bool shooting;
-    private bool inRange;
-    private bool hasLineOfSight;
-    private bool hit = false;
-    private bool isDead = false;
     private int frames = 0;
     //public float target.health = 100.0f;
     public int healthPacks = 1;
@@ -38,7 +33,6 @@ public class GuardBehavior : MonoBehaviour
         start2 = new Vector3(transform.position.x+30, transform.position.y, transform.position.z);
         objectivePos = objective.position;
         agent.speed = 10.0f;
-        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -47,40 +41,21 @@ public class GuardBehavior : MonoBehaviour
         //Debug.LogError(objscript.isTaken);
         if (objscript.isTaken || InRange(maxViewDistance))
         {
+            
 
             //MoveTo(playerTransform.position);
             if (InRange(maxViewDistance))
             {
-                //Animator FSM moves from "Idle" state to "Jump" state
-                animator.SetBool("InRange", inRange);
-
                 MoveTo(playerTransform.position);
                 //Debug.LogError(objscript.isTaken);
-                if (target.health <= 0)
-                {
-                    isDead = true;
-                    agent.isStopped = true;
-                    animator.SetBool("Dead", isDead);
-                    Destroy(gameObject, 7.3f);
-                }
-                else if (target.health < 20.0f)
-                {
-                    agent.isStopped = true;
-                    hit = true;
-                    animator.SetBool("Hit", hit);
+                if (target.health < 20.0f)
                     Heal();
-                    hit = false;
-                    agent.isStopped = false;
-                }
                 else if (InRange(meleeDistance) && PlayerInSight())
                 {
                     //Debug.LogError("IN RANGEEEEE");
-                    //Animator FSM moves from "Jump" state to "Fire" state
-                    animator.SetBool("HasLineOfSight", hasLineOfSight);
                     Invoke("Melee", 2.0f);
                 }
                 else
-                    //animator.SetBool("HasLineOfSight", hasLineOfSight);
                     Attack();
             }
             else if (objscript.isTaken)
@@ -101,16 +76,16 @@ public class GuardBehavior : MonoBehaviour
     // returns TRUE if the distance between the PLAYER and THIS is less than DIST otherwise returns false
     bool InRange(float dist)
     {
-        inRange = ((((playerTransform.position.x - transform.position.x)
+        bool inRange = ((((playerTransform.position.x - transform.position.x)
                 * (playerTransform.position.x - transform.position.x))
                 + ((playerTransform.position.y - transform.position.y)
                 * (playerTransform.position.y - transform.position.y))) < (dist * dist));
         //Debug.LogError("ranging of " + dist + " "+ inRange);
         return inRange;
-
-
+        
+        
     }
-    void Heal()
+    void Heal() 
     {
         float currentHp = target.health;
         if (healthPacks > 0)
@@ -130,7 +105,7 @@ public class GuardBehavior : MonoBehaviour
     {
         target.health += 20;
     }
-    void Idle()
+    void Idle() 
     {
         agent.destination = start;
         agent.destination = start2;
@@ -139,7 +114,7 @@ public class GuardBehavior : MonoBehaviour
         //MoveTo(start2);
         //some animation
     }
-    void Melee()
+    void Melee() 
     {
         //player.target.health -= meleeDmg;
         if (InRange(hitDistance) && !punching)
@@ -167,11 +142,10 @@ public class GuardBehavior : MonoBehaviour
     IEnumerator PunchingPlayer()
     {
         punching = true;
-
+        
         //Debug.LogError("punch");
         //punch animation???
         player.health -= meleeDmg;
-        //Debug.Log("hello");
         yield return new WaitForSeconds(2.0f);
         punching = false;
     }
@@ -183,11 +157,11 @@ public class GuardBehavior : MonoBehaviour
         }
         //shoot at the player
         //if (InRange(meleeDistance * 2))
-        //{
+        //{ 
         //    //back up
         //    //animation walkBackwards
         //    if (InRange(meleeDistance))
-        //    {
+        //    { 
         //        //animation melee?
         //    }
 
@@ -204,14 +178,14 @@ public class GuardBehavior : MonoBehaviour
         {
             player.health -= 25;
         }
-
+        
         //shooting = false;
     }
 
     //sends a ray from enemy to player, and returns whether or not they are in view
     bool PlayerInSight()
     {
-
+        
         Vector3 direction = player.transform.position - transform.position;
         float angle = Vector3.Angle(direction, transform.forward);
 
@@ -222,9 +196,6 @@ public class GuardBehavior : MonoBehaviour
             {
                 if (hit.collider.gameObject == player.gameObject)
                 {
-                    //hasLineOfSight is a bool value used for the Animator Controller FSM to transition from "jump" to "fire_walk" animations
-                    hasLineOfSight = true;
-                    animator.SetBool("HasLineOfSight", hasLineOfSight);
                     return true;
                 }
             }
