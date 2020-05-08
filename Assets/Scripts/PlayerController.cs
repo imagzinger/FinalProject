@@ -37,6 +37,11 @@ public class PlayerController : MonoBehaviour
         gameManager = GameObject.FindWithTag("GameController");
         characterClass = gameManager.GetComponent<GameManager>().GetClass();
         gunScript = camera.GetComponent<Gun>();
+        GameObject[] guards = GameObject.FindGameObjectsWithTag("aigaurd");
+        for (int i = 0; i < guards.Length; i++)
+        {
+            Physics.IgnoreCollision(guards[i].GetComponent<BoxCollider>(), GetComponent<CapsuleCollider>());
+        }
         if (characterClass == 0) {
             characterClass = 1;
         }
