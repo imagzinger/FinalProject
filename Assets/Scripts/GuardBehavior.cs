@@ -69,6 +69,12 @@ public class GuardBehavior : MonoBehaviour
                     hit = true;
                     animator.SetBool("Hit", hit);
                     Heal();
+                    agent.isStopped = false;
+                }
+                else if (target.health > 20 && target.health <= 70) {
+                    agent.isStopped = true;
+                    hit = true;
+                    animator.SetBool("hit", hit);
                     hit = false;
                     agent.isStopped = false;
                 }
