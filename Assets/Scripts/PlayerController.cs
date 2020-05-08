@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 	public float degrees;
 	public float zOffset;
 	public float xOffset;
+    public int kills = 0;
     PhysicsController physicsController;
     [SerializeField] ObjectiveScript os;
     [SerializeField] GameObject crossHair;
@@ -43,14 +44,14 @@ public class PlayerController : MonoBehaviour
         if (characterClass == 1) {
             health = 500f;
             speed = 13f;
-            gunScript.ammo = 15;
+            gunScript.ammo = 0;
             gunScript.initAmmo = 15;
             gunScript.damage = 35f;
         }
         else if (characterClass == 2) {
             health = 800f;
             speed = 7f;
-            gunScript.ammo = 2;
+            gunScript.ammo = 0;
             gunScript.initAmmo = 2;
             gunScript.recoilTime = .15f;
             gunScript.recoilPower = .8f;
@@ -61,7 +62,7 @@ public class PlayerController : MonoBehaviour
         {
             health = 300f;
             speed = 16f;
-            gunScript.ammo = 1;
+            gunScript.ammo = 0;
             gunScript.initAmmo = 1;
             gunScript.recoilTime = .10f;
             gunScript.recoilPower = 5f;

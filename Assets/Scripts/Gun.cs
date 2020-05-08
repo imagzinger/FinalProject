@@ -8,7 +8,7 @@ public class Gun : MonoBehaviour
 
     [SerializeField] Camera fpsCam;
     [SerializeField] Target target;
-    public int ammo = 15;
+    public int ammo = 0;
     public int initAmmo = 15;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] Text UIbullets;
@@ -27,6 +27,7 @@ public class Gun : MonoBehaviour
     void Start()
     {
         looking = GetComponent<LookingDirection>();
+        StartCoroutine(Reload());
     }
 
     // Update is called once per frame

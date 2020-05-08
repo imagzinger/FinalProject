@@ -1,12 +1,16 @@
 ﻿
+using System.Globalization;
 using System.Security.Cryptography;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-
+    //public int deaths = 0;
     public float health = 100f;
     [SerializeField] Transform objective;
+    [SerializeField] PlayerController pc;
+    [SerializeField] Text numKills;
     public void TakeDamage(float amount) {
 
         health = health - amount;
@@ -14,7 +18,10 @@ public class Target : MonoBehaviour
 
             //DieAnimation();
             gameObject.SetActive(false);
-            Invoke("SpawnNew",10f);
+            //deaths++;
+            pc.kills++;
+            numKills.text = pc.kills.ToString();
+            Invoke("SpawnNew", 10f);
         }
 
     }
