@@ -14,6 +14,10 @@ public class Target : MonoBehaviour
     public void TakeDamage(float amount) {
 
         health = health - amount;
+
+
+        //animator.SetBool("Hit", hit);
+
         if (health <= 0f) {
 
             //DieAnimation();
@@ -23,6 +27,7 @@ public class Target : MonoBehaviour
             numKills.text = pc.kills.ToString();
             Invoke("SpawnNew", 10f);
         }
+
 
     }
 
