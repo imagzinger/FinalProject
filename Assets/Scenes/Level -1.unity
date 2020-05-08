@@ -120,6 +120,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 20e38a384bf99c14f8b365e7a6b144c4, type: 2}
+--- !u!1 &36311691 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3960873380585940329, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
+    type: 3}
+  m_PrefabInstance: {fileID: 458463022}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &36311692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36311691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b13f29e17031bf4c9d4be9d986dca6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 254787461}
+  playerTransform: {fileID: 254787460}
+  agent: {fileID: 609732280}
+  target: {fileID: 36311693}
+  distance: 0
+  objective: {fileID: 712278725}
+  objscript: {fileID: 712278721}
+  healthPacks: 1
+  maxViewDistance: 200
+  meleeDistance: 10
+  hitDistance: 25
+  meleeDmg: 100
+  start: {x: 0, y: 0, z: 0}
+  start2: {x: 0, y: 0, z: 0}
+--- !u!114 &36311693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36311691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a702e872ad408eb43b1b55d87df3f9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &73398992
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,7 +826,17 @@ PrefabInstance:
     - target: {fileID: 3960873380585940329, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
         type: 3}
       propertyPath: m_Name
-      value: Guard Model
+      value: 'AI Guard '
+      objectReference: {fileID: 0}
+    - target: {fileID: 3960873380585940331, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
+        type: 3}
+      propertyPath: m_Name
+      value: fighter.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 3960873380585940335, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
+        type: 3}
+      propertyPath: m_Name
+      value: AI Guard
       objectReference: {fileID: 0}
     - target: {fileID: 3960873380586436943, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
         type: 3}
@@ -5620,31 +5675,6 @@ Transform:
   m_Father: {fileID: 963194228}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!1 &601880248 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3960873380585940331, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
-    type: 3}
-  m_PrefabInstance: {fileID: 1535091088}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &601880249
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 601880248}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 6a104431e4b3a2d488304425a09b95c6, type: 3}
-  m_Controller: {fileID: 9100000, guid: f1c3f901fe4040a49a8dc57ca821747e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &609732275
 GameObject:
   m_ObjectHideFlags: 0
@@ -5658,9 +5688,6 @@ GameObject:
   - component: {fileID: 609732277}
   - component: {fileID: 609732276}
   - component: {fileID: 609732280}
-  - component: {fileID: 609732281}
-  - component: {fileID: 609732282}
-  - component: {fileID: 609732283}
   m_Layer: 0
   m_Name: AIGuard
   m_TagString: aigaurd
@@ -5717,12 +5744,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 609732275}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6430, y: -33, z: -9080}
-  m_LocalScale: {x: 200, y: 200, z: 200}
+  m_LocalPosition: {x: 76.02, y: 0.84999996, z: -81.069984}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 458463023}
-  m_Father: {fileID: 1605584660}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &609732280
 NavMeshAgent:
@@ -5746,64 +5773,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &609732281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 609732275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b13f29e17031bf4c9d4be9d986dca6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 254787461}
-  playerTransform: {fileID: 254787460}
-  agent: {fileID: 609732280}
-  target: {fileID: 609732282}
-  distance: 0
-  objective: {fileID: 712278725}
-  objscript: {fileID: 712278721}
-  healthPacks: 1
-  maxViewDistance: 200
-  meleeDistance: 10
-  hitDistance: 25
-  meleeDmg: 100
-  start: {x: 0, y: 0, z: 0}
-  start2: {x: 0, y: 0, z: 0}
---- !u!114 &609732282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 609732275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a702e872ad408eb43b1b55d87df3f9ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
---- !u!95 &609732283
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 609732275}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: dd3397b9bc81a784f956e5668275cc2f, type: 3}
-  m_Controller: {fileID: 9100000, guid: f1c3f901fe4040a49a8dc57ca821747e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &702043177
 GameObject:
   m_ObjectHideFlags: 0
@@ -6072,7 +6041,7 @@ Transform:
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children: []
   m_Father: {fileID: 1605584660}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &855483204
 GameObject:
@@ -6757,7 +6726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fpsCam: {fileID: 963194227}
-  target: {fileID: 0}
+  target: {fileID: 1372787359}
   ammo: 15
   muzzleFlash: {fileID: 488923026}
   UIbullets: {fileID: 1143693284}
@@ -7079,9 +7048,6 @@ GameObject:
   - component: {fileID: 1148766305}
   - component: {fileID: 1148766304}
   - component: {fileID: 1148766303}
-  - component: {fileID: 1148766302}
-  - component: {fileID: 1148766301}
-  - component: {fileID: 1148766300}
   m_Layer: 0
   m_Name: AIGuard 1
   m_TagString: aigaurd
@@ -7097,71 +7063,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148766298}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7778, y: -25, z: -1340}
-  m_LocalScale: {x: 200, y: 200, z: 200}
+  m_LocalPosition: {x: 89.5, y: 0.92999995, z: -3.67}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1535091089}
-  m_Father: {fileID: 1605584660}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1148766300
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1148766298}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: a384cfde8bcd7bb49a6ce7bc589be395, type: 3}
-  m_Controller: {fileID: 9100000, guid: f1c3f901fe4040a49a8dc57ca821747e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1148766301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1148766298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a702e872ad408eb43b1b55d87df3f9ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
---- !u!114 &1148766302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1148766298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b13f29e17031bf4c9d4be9d986dca6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 254787461}
-  playerTransform: {fileID: 254787460}
-  agent: {fileID: 1148766303}
-  target: {fileID: 1148766301}
-  distance: 0
-  objective: {fileID: 712278725}
-  objscript: {fileID: 712278721}
-  healthPacks: 1
-  maxViewDistance: 200
-  meleeDistance: 10
-  hitDistance: 25
-  meleeDmg: 100
-  start: {x: 0, y: 0, z: 0}
-  start2: {x: 0, y: 0, z: 0}
 --- !u!195 &1148766303
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -7497,7 +7405,7 @@ PrefabInstance:
     - target: {fileID: 3960873380585940331, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
         type: 3}
       propertyPath: m_Name
-      value: AI Guard 2
+      value: fighter.002
       objectReference: {fileID: 0}
     - target: {fileID: 3960873380585940335, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
         type: 3}
@@ -7512,7 +7420,7 @@ PrefabInstance:
     - target: {fileID: 3960873380586436943, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.030000037
+      value: 0.030000038
       objectReference: {fileID: 0}
     - target: {fileID: 3960873380586436943, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
         type: 3}
@@ -7588,6 +7496,70 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1372787354}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1372787356 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3960873380585940329, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
+    type: 3}
+  m_PrefabInstance: {fileID: 1372787354}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1372787357
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372787356}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: dd3397b9bc81a784f956e5668275cc2f, type: 3}
+  m_Controller: {fileID: 9100000, guid: f1c3f901fe4040a49a8dc57ca821747e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1372787358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372787356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b13f29e17031bf4c9d4be9d986dca6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 254787461}
+  playerTransform: {fileID: 254787460}
+  agent: {fileID: 2019984955}
+  target: {fileID: 1372787359}
+  distance: 0
+  objective: {fileID: 712278725}
+  objscript: {fileID: 712278721}
+  healthPacks: 1
+  maxViewDistance: 200
+  meleeDistance: 10
+  hitDistance: 25
+  meleeDmg: 100
+  start: {x: 0, y: 0, z: 0}
+  start2: {x: 0, y: 0, z: 0}
+--- !u!114 &1372787359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372787356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a702e872ad408eb43b1b55d87df3f9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &1376070636
 GameObject:
   m_ObjectHideFlags: 0
@@ -7717,31 +7689,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1376070636}
   m_CullTransparentMesh: 0
---- !u!1 &1405421447 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3960873380585940335, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
-    type: 3}
-  m_PrefabInstance: {fileID: 1372787354}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1405421448
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1405421447}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 6a104431e4b3a2d488304425a09b95c6, type: 3}
-  m_Controller: {fileID: 9100000, guid: f1c3f901fe4040a49a8dc57ca821747e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1422551227
 GameObject:
   m_ObjectHideFlags: 0
@@ -7900,7 +7847,7 @@ PrefabInstance:
     - target: {fileID: 3960873380585940331, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
         type: 3}
       propertyPath: m_Name
-      value: AI Guard 1
+      value: fighter.002
       objectReference: {fileID: 0}
     - target: {fileID: 3960873380585940335, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
         type: 3}
@@ -8018,9 +7965,6 @@ Transform:
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 254787460}
-  - {fileID: 609732279}
-  - {fileID: 1148766299}
-  - {fileID: 2019984951}
   - {fileID: 712278725}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -8451,6 +8395,51 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 234469120}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1803339881 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3960873380585940329, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
+    type: 3}
+  m_PrefabInstance: {fileID: 1535091088}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1803339882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803339881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b13f29e17031bf4c9d4be9d986dca6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 254787461}
+  playerTransform: {fileID: 254787460}
+  agent: {fileID: 1148766303}
+  target: {fileID: 0}
+  distance: 0
+  objective: {fileID: 712278725}
+  objscript: {fileID: 712278721}
+  healthPacks: 1
+  maxViewDistance: 200
+  meleeDistance: 10
+  hitDistance: 25
+  meleeDmg: 100
+  start: {x: 0, y: 0, z: 0}
+  start2: {x: 0, y: 0, z: 0}
+--- !u!114 &1803339883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803339881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a702e872ad408eb43b1b55d87df3f9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &1930217237
 GameObject:
   m_ObjectHideFlags: 0
@@ -8501,9 +8490,6 @@ GameObject:
   - component: {fileID: 2019984957}
   - component: {fileID: 2019984956}
   - component: {fileID: 2019984955}
-  - component: {fileID: 2019984954}
-  - component: {fileID: 2019984953}
-  - component: {fileID: 2019984952}
   m_Layer: 0
   m_Name: AI Guard 2
   m_TagString: player
@@ -8519,71 +8505,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2019984950}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6518, y: -114, z: 5759}
-  m_LocalScale: {x: 200, y: 200, z: 200}
+  m_LocalPosition: {x: 76.9, y: 0.03999996, z: 67.32}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1372787355}
-  m_Father: {fileID: 1605584660}
-  m_RootOrder: 3
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &2019984952
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019984950}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: a384cfde8bcd7bb49a6ce7bc589be395, type: 3}
-  m_Controller: {fileID: 9100000, guid: f1c3f901fe4040a49a8dc57ca821747e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2019984953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019984950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a702e872ad408eb43b1b55d87df3f9ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
---- !u!114 &2019984954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019984950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b13f29e17031bf4c9d4be9d986dca6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 254787461}
-  playerTransform: {fileID: 254787460}
-  agent: {fileID: 2019984955}
-  target: {fileID: 2019984953}
-  distance: 0
-  objective: {fileID: 712278725}
-  objscript: {fileID: 712278721}
-  healthPacks: 1
-  maxViewDistance: 200
-  meleeDistance: 10
-  hitDistance: 25
-  meleeDmg: 100
-  start: {x: 0, y: 0, z: 0}
-  start2: {x: 0, y: 0, z: 0}
 --- !u!195 &2019984955
 NavMeshAgent:
   m_ObjectHideFlags: 0

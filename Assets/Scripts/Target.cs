@@ -19,7 +19,7 @@ public class Target : MonoBehaviour
         health = health - amount;
 
         hit = true;
-        animator.SetBool("Hit", hit);
+        //animator.SetBool("Hit", hit);
 
         if (health <= 0f) {
 
