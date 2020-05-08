@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class EndTrigger : MonoBehaviour
 {
-    [SerializeField] GameObject endScene;
-    void OnCollisionEnter(Collider other)
+    [SerializeField] GameObject levelManager;
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "player")
         {
+            Debug.Log("works");
             if (other.GetComponent<PlayerController>().hasObjective)
             {
-                endScene.SetActive(true);
+                levelManager.GetComponent<LevelManager>().Complete();
             }
         }
     }

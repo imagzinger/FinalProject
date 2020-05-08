@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject gameOverMenu;
+    [SerializeField] GameObject winScreen;
     Camera camera;
     bool gamePaused = false;
 
@@ -84,5 +85,11 @@ public class LevelManager : MonoBehaviour
         Pause();
         pauseMenu.SetActive(false);
         gameOverMenu.SetActive(true);
+    }
+
+    public void Complete() {
+        Pause();
+        pauseMenu.SetActive(false);
+        winScreen.SetActive(true);
     }
 }
