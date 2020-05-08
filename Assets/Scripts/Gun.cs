@@ -20,6 +20,7 @@ public class Gun : MonoBehaviour
     float range = 1000f;
     bool isReloading = false;
     bool canShoot = true;
+    bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -59,7 +60,7 @@ public class Gun : MonoBehaviour
             if (target != null)
             {
                 Debug.Log(target.name);
-                target.TakeDamage(damage);
+                target.TakeDamage(damage);  
             }
         }
         StartCoroutine(Recoil());

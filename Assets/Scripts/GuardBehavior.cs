@@ -49,16 +49,23 @@ public class GuardBehavior : MonoBehaviour
             //MoveTo(playerTransform.position);
             if (InRange(maxViewDistance))
             {
-                //Animator FSM moves from Idle state to "Jump" state
+                //Animator FSM moves from "Idle" state to "Jump" state
                 animator.SetBool("InRange", inRange);
 
                 MoveTo(playerTransform.position);
                 //Debug.LogError(objscript.isTaken);
                 if (target.health < 20.0f)
+                {
+                    animator.SetBool("Hit", true);
+                    if (target.health <= 0) {
+                        animator.SetBool("Dead", true);
+                    }
                     Heal();
+                }
                 else if (InRange(meleeDistance) && PlayerInSight())
                 {
                     //Debug.LogError("IN RANGEEEEE");
+                    //Animator FSM moves from "Jump" state to "Fire" state
                     animator.SetBool("HasLineOfSight", hasLineOfSight);
                     Invoke("Melee", 2.0f);
                 }
