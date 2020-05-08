@@ -188,7 +188,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Get Flag
+  m_Text: Get Cube
 --- !u!222 &43263351
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2613,7 +2613,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Restart Level
+  m_Text: Return to Level Select
 --- !u!222 &1153840843
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2635,7 +2635,7 @@ GameObject:
   - component: {fileID: 1171070450}
   - component: {fileID: 1171070449}
   m_Layer: 5
-  m_Name: Restart Level
+  m_Name: To Level Select
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2705,7 +2705,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1337335434}
-        m_MethodName: RestartLevel
+        m_MethodName: ToLevelSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2770,6 +2770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTaken: 0
+  objText: {fileID: 43263350}
 --- !u!64 &1189455124
 MeshCollider:
   m_ObjectHideFlags: 0

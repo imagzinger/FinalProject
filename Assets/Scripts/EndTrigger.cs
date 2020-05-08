@@ -9,7 +9,6 @@ public class EndTrigger : MonoBehaviour
     {
         if (other.gameObject.tag == "player")
         {
-            Debug.Log("works");
             if (other.GetComponent<PlayerController>().hasObjective)
             {
                 levelManager.GetComponent<LevelManager>().Complete();

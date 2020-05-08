@@ -92,4 +92,15 @@ public class LevelManager : MonoBehaviour
         pauseMenu.SetActive(false);
         winScreen.SetActive(true);
     }
+
+    public void ToLevelSelect() {
+        Time.timeScale = 1f;
+        GameObject[] guards = GameObject.FindGameObjectsWithTag("aigaurd");
+        for (int i = 0; i < guards.Length; i++)
+        {
+            guards[i].GetComponent<GuardBehavior>().enabled = true;
+        }
+        GameObject.FindGameObjectWithTag("player").GetComponent<PlayerController>().enabled = true;
+        SceneManager.LoadScene("LevelSelect");
+    }
 }
