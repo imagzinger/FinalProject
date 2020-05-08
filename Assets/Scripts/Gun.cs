@@ -6,7 +6,6 @@ public class Gun : MonoBehaviour
 {
 
     [SerializeField] Camera fpsCam;
-    [SerializeField] Target target;
     [SerializeField] int ammo = 15;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] Text UIbullets;
@@ -15,6 +14,7 @@ public class Gun : MonoBehaviour
     [SerializeField] float recoilTime = .15f;
     [SerializeField] Slider ammoSlider;
     LookingDirection looking;
+    Target target;
     RaycastHit hit;
     float damage = 45f;
     float range = 1000f;

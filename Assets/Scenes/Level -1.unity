@@ -159,7 +159,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36311691}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a702e872ad408eb43b1b55d87df3f9ec, type: 3}
   m_Name: 
@@ -5688,6 +5688,7 @@ GameObject:
   - component: {fileID: 609732277}
   - component: {fileID: 609732276}
   - component: {fileID: 609732280}
+  - component: {fileID: 609732281}
   m_Layer: 0
   m_Name: AIGuard
   m_TagString: aigaurd
@@ -5773,6 +5774,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &609732281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609732275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a702e872ad408eb43b1b55d87df3f9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &702043177
 GameObject:
   m_ObjectHideFlags: 0
@@ -6726,7 +6740,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fpsCam: {fileID: 963194227}
-  target: {fileID: 1372787359}
   ammo: 15
   muzzleFlash: {fileID: 488923026}
   UIbullets: {fileID: 1143693284}
@@ -7048,6 +7061,7 @@ GameObject:
   - component: {fileID: 1148766305}
   - component: {fileID: 1148766304}
   - component: {fileID: 1148766303}
+  - component: {fileID: 1148766300}
   m_Layer: 0
   m_Name: AIGuard 1
   m_TagString: aigaurd
@@ -7070,6 +7084,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1148766300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148766298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a702e872ad408eb43b1b55d87df3f9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!195 &1148766303
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -7554,7 +7581,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1372787356}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a702e872ad408eb43b1b55d87df3f9ec, type: 3}
   m_Name: 
@@ -8416,7 +8443,7 @@ MonoBehaviour:
   player: {fileID: 254787461}
   playerTransform: {fileID: 254787460}
   agent: {fileID: 1148766303}
-  target: {fileID: 0}
+  target: {fileID: 1803339883}
   distance: 0
   objective: {fileID: 712278725}
   objscript: {fileID: 712278721}
@@ -8434,7 +8461,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1803339881}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a702e872ad408eb43b1b55d87df3f9ec, type: 3}
   m_Name: 
@@ -8490,6 +8517,7 @@ GameObject:
   - component: {fileID: 2019984957}
   - component: {fileID: 2019984956}
   - component: {fileID: 2019984955}
+  - component: {fileID: 2019984952}
   m_Layer: 0
   m_Name: AI Guard 2
   m_TagString: player
@@ -8512,6 +8540,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2019984952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019984950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a702e872ad408eb43b1b55d87df3f9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!195 &2019984955
 NavMeshAgent:
   m_ObjectHideFlags: 0

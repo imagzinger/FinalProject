@@ -24,7 +24,7 @@ public class Target : MonoBehaviour
         if (health <= 0f) {
 
             isDead = true;
-            animator.SetBool("Dead", isDead);
+            //animator.SetBool("Dead", isDead);
             Destroy(gameObject);
         }
         isDead = false;
