@@ -402,7 +402,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 4957790279943126784}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 335513955}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58c2f370017bca643a45e685e8a90bb8, type: 3}
@@ -624,6 +624,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000061035156, y: 0.000061035156}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &335513955 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4957790279857553536, guid: 2e2a99a6db946f246bc823102cd468fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 4957790279943126784}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &335513961
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335513955}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.49999997
+  m_Height: 1.9999999
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &391824646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1214,6 +1234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   objective: {fileID: 492397639}
+  pc: {fileID: 254787461}
+  numKills: {fileID: 391824648}
 --- !u!1 &702043177
 GameObject:
   m_ObjectHideFlags: 0
@@ -2356,6 +2378,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   objective: {fileID: 492397639}
+  pc: {fileID: 254787461}
+  numKills: {fileID: 391824648}
 --- !u!114 &1148766302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4705,6 +4729,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   objective: {fileID: 492397639}
+  pc: {fileID: 254787461}
+  numKills: {fileID: 391824648}
 --- !u!114 &2019984954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5237,6 +5263,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4957790279857553537, guid: 2e2a99a6db946f246bc823102cd468fc,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4957790279857553540, guid: 2e2a99a6db946f246bc823102cd468fc,
         type: 3}
