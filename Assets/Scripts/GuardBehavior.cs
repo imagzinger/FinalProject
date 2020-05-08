@@ -18,6 +18,8 @@ public class GuardBehavior : MonoBehaviour
     private bool shooting;
     private bool inRange;
     private bool hasLineOfSight;
+    private bool hit = false;
+    private bool isDead = false;
     private int frames = 0;
     //public float target.health = 100.0f;
     public int healthPacks = 1;
@@ -54,13 +56,21 @@ public class GuardBehavior : MonoBehaviour
 
                 MoveTo(playerTransform.position);
                 //Debug.LogError(objscript.isTaken);
-                if (target.health < 20.0f)
+                if (target.health <= 0)
                 {
-                    animator.SetBool("Hit", true);
-                    if (target.health <= 0) {
-                        animator.SetBool("Dead", true);
-                    }
+                    isDead = true;
+                    agent.isStopped = true;
+                    animator.SetBool("Dead", isDead);
+                    Destroy(gameObject, 7.3f);
+                }
+                else if (target.health < 20.0f)
+                {
+                    agent.isStopped = true;
+                    hit = true;
+                    animator.SetBool("Hit", hit);
                     Heal();
+                    hit = false;
+                    agent.isStopped = false;
                 }
                 else if (InRange(meleeDistance) && PlayerInSight())
                 {
