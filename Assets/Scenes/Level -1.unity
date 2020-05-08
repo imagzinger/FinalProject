@@ -856,7 +856,7 @@ MonoBehaviour:
   objective: {fileID: 492397639}
   objscript: {fileID: 1189455121}
   healthPacks: 1
-  maxViewDistance: 200
+  maxViewDistance: 50
   meleeDistance: 10
   hitDistance: 25
   meleeDmg: 100
@@ -875,7 +875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  objective: {fileID: 0}
+  objective: {fileID: 492397639}
 --- !u!1 &702043177
 GameObject:
   m_ObjectHideFlags: 0
@@ -2017,7 +2017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  objective: {fileID: 0}
+  objective: {fileID: 492397639}
 --- !u!114 &1148766302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2038,7 +2038,7 @@ MonoBehaviour:
   objective: {fileID: 492397639}
   objscript: {fileID: 1189455121}
   healthPacks: 1
-  maxViewDistance: 200
+  maxViewDistance: 50
   meleeDistance: 10
   hitDistance: 25
   meleeDmg: 100
@@ -3828,7 +3828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  objective: {fileID: 0}
+  objective: {fileID: 492397639}
 --- !u!114 &2019984954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3849,7 +3849,7 @@ MonoBehaviour:
   objective: {fileID: 492397639}
   objscript: {fileID: 1189455121}
   healthPacks: 1
-  maxViewDistance: 200
+  maxViewDistance: 50
   meleeDistance: 10
   hitDistance: 25
   meleeDmg: 100

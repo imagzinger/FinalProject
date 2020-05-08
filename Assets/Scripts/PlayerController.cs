@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject crossHair;
     [SerializeField] GameObject scopedCross;
     [SerializeField] GameObject gunObj;
+    [SerializeField] GameObject endScene;
     [SerializeField] LevelManager levelManager;
     [SerializeField] float jumpForce;
     Gun gunScript;
@@ -163,8 +164,9 @@ public class PlayerController : MonoBehaviour
             levelManager.GameOver();   
         }
         //jump struggling...
-        rb.AddForce(Vector3.down * 100f);
+        rb.AddForce(Vector3.down * 10f, ForceMode.VelocityChange);
         rb.velocity = Vector3.zero;
         hasObjective = os.isTaken;
 	}
+   
 }
