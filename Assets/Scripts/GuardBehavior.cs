@@ -61,16 +61,17 @@ public class GuardBehavior : MonoBehaviour
                     isDead = true;
                     agent.isStopped = true;
                     animator.SetBool("Dead", isDead);
-                    Destroy(gameObject, 7.3f);
+                   
+                    //Destroy(gameObject, 7.3f);
                 }
                 else if (target.health < 20.0f)
                 {
-                    agent.isStopped = true;
-                    hit = true;
-                    animator.SetBool("Hit", hit);
-                    Heal();
-                    agent.isStopped = false;
-                }
+					agent.isStopped = true;
+					hit = true;
+					//animator.SetBool("Hit", hit);
+					Heal();
+					agent.isStopped = false;
+				}
                 else if (target.health > 20 && target.health <= 70) {
                     agent.isStopped = true;
                     hit = true;

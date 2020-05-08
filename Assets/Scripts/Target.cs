@@ -21,10 +21,11 @@ public class Target : MonoBehaviour
         if (health <= 0f) {
 
             //DieAnimation();
-            gameObject.SetActive(false);
+           
             //deaths++;
             pc.kills++;
             numKills.text = pc.kills.ToString();
+            gameObject.SetActive(false);
             Invoke("SpawnNew", 10f);
         }
 

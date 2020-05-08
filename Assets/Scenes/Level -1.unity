@@ -130,8 +130,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &73398992
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,8 +159,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5a1d8f34fcc70847b837ffa04e8a182, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &73398994
 Transform:
   m_ObjectHideFlags: 0
@@ -191,8 +191,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58c2f370017bca643a45e685e8a90bb8, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &335513955 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4957790279857553536, guid: 2e2a99a6db946f246bc823102cd468fc,
@@ -223,8 +223,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &458463022
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -236,6 +236,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Guard Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 3960873380585940331, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
+        type: 3}
+      propertyPath: m_Name
+      value: fighter.002
       objectReference: {fileID: 0}
     - target: {fileID: 3960873380586436943, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
         type: 3}
@@ -315,6 +320,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 458463022}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &458463024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3960873380585940329, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
+    type: 3}
+  m_PrefabInstance: {fileID: 458463022}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &458463025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458463024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b13f29e17031bf4c9d4be9d986dca6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 254787461}
+  playerTransform: {fileID: 254787460}
+  agent: {fileID: 609732280}
+  target: {fileID: 609732282}
+  distance: 0
+  objective: {fileID: 492397639}
+  objscript: {fileID: 1189455121}
+  healthPacks: 1
+  maxViewDistance: 50
+  meleeDistance: 10
+  hitDistance: 25
+  meleeDmg: 100
+  start: {x: 0, y: 0, z: 0}
+  start2: {x: 0, y: 0, z: 0}
 --- !u!1001 &492397638
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -395,12 +432,12 @@ PrefabInstance:
     - target: {fileID: -1504981713932161579, guid: b4cac654264510f4d9897341b55049f8,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
-      value:
+      value: 
       objectReference: {fileID: 2100000, guid: ea423aa8d164d2442801db1a5c7783db, type: 2}
     - target: {fileID: -1504981713932161579, guid: b4cac654264510f4d9897341b55049f8,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
-      value:
+      value: 
       objectReference: {fileID: 2100000, guid: 0941d3f0ef436fd408a55d4cad2806ad, type: 2}
     - target: {fileID: -927199367670048503, guid: b4cac654264510f4d9897341b55049f8,
         type: 3}
@@ -518,8 +555,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 236d856d4eb17e14ab567ad5eba851d6, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   levelManager: {fileID: 1337335433}
 --- !u!1 &609732275
 GameObject:
@@ -534,7 +571,6 @@ GameObject:
   - component: {fileID: 609732277}
   - component: {fileID: 609732276}
   - component: {fileID: 609732280}
-  - component: {fileID: 609732281}
   - component: {fileID: 609732282}
   m_Layer: 0
   m_Name: AIGuard
@@ -621,32 +657,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &609732281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 609732275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b13f29e17031bf4c9d4be9d986dca6e, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  player: {fileID: 254787461}
-  playerTransform: {fileID: 254787460}
-  agent: {fileID: 609732280}
-  target: {fileID: 609732282}
-  distance: 0
-  objective: {fileID: 492397639}
-  objscript: {fileID: 1189455121}
-  healthPacks: 1
-  maxViewDistance: 50
-  meleeDistance: 10
-  hitDistance: 25
-  meleeDmg: 100
-  start: {x: 0, y: 0, z: 0}
-  start2: {x: 0, y: 0, z: 0}
 --- !u!114 &609732282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,8 +667,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a702e872ad408eb43b1b55d87df3f9ec, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   health: 100
   objective: {fileID: 492397639}
   pc: {fileID: 254787461}
@@ -790,8 +800,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3df27b9289d1e8c4fb82e0df4f4673ba, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_AgentTypeID: 0
   m_CollectObjects: 0
   m_Size: {x: 10, y: 10, z: 10}
@@ -837,8 +847,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -856,8 +866,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
@@ -885,8 +895,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1148766298
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,7 +910,6 @@ GameObject:
   - component: {fileID: 1148766305}
   - component: {fileID: 1148766304}
   - component: {fileID: 1148766303}
-  - component: {fileID: 1148766302}
   - component: {fileID: 1148766301}
   m_Layer: 0
   m_Name: AIGuard 1
@@ -934,38 +943,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a702e872ad408eb43b1b55d87df3f9ec, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   health: 100
   objective: {fileID: 492397639}
   pc: {fileID: 254787461}
   numKills: {fileID: 391824648}
---- !u!114 &1148766302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1148766298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b13f29e17031bf4c9d4be9d986dca6e, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  player: {fileID: 254787461}
-  playerTransform: {fileID: 254787460}
-  agent: {fileID: 1148766303}
-  target: {fileID: 1148766301}
-  distance: 0
-  objective: {fileID: 492397639}
-  objscript: {fileID: 1189455121}
-  healthPacks: 1
-  maxViewDistance: 50
-  meleeDistance: 10
-  hitDistance: 25
-  meleeDmg: 100
-  start: {x: 0, y: 0, z: 0}
-  start2: {x: 0, y: 0, z: 0}
 --- !u!195 &1148766303
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1045,8 +1028,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5281f51a610dbb54db451393d307df88, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   isTaken: 0
   objText: {fileID: 43263350}
 --- !u!64 &1189455124
@@ -1102,8 +1085,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d53962bfec86d54e82ac2368cc57786, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   pauseMenu: {fileID: 960592600}
   gameOverMenu: {fileID: 1200853910}
   winScreen: {fileID: 1722444579}
@@ -1132,6 +1115,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Guard Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 3960873380585940331, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
+        type: 3}
+      propertyPath: m_Name
+      value: fighter.002
       objectReference: {fileID: 0}
     - target: {fileID: 3960873380586436943, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
         type: 3}
@@ -1211,6 +1199,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1372787354}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1372787356 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3960873380585940329, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
+    type: 3}
+  m_PrefabInstance: {fileID: 1372787354}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1372787357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372787356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b13f29e17031bf4c9d4be9d986dca6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 254787461}
+  playerTransform: {fileID: 254787460}
+  agent: {fileID: 2019984955}
+  target: {fileID: 2019984953}
+  distance: 0
+  objective: {fileID: 492397639}
+  objscript: {fileID: 1189455121}
+  healthPacks: 1
+  maxViewDistance: 50
+  meleeDistance: 10
+  hitDistance: 25
+  meleeDmg: 100
+  start: {x: 0, y: 0, z: 0}
+  start2: {x: 0, y: 0, z: 0}
 --- !u!1001 &1535091088
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1222,6 +1242,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Guard Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 3960873380585940331, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
+        type: 3}
+      propertyPath: m_Name
+      value: fighter.002
       objectReference: {fileID: 0}
     - target: {fileID: 3960873380586436943, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
         type: 3}
@@ -1301,6 +1326,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1535091088}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1535091090 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3960873380585940329, guid: 6dc7afdb9a9569347ade4ff2c86cd547,
+    type: 3}
+  m_PrefabInstance: {fileID: 1535091088}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1535091091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535091090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b13f29e17031bf4c9d4be9d986dca6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 254787461}
+  playerTransform: {fileID: 254787460}
+  agent: {fileID: 1148766303}
+  target: {fileID: 1148766301}
+  distance: 0
+  objective: {fileID: 492397639}
+  objscript: {fileID: 1189455121}
+  healthPacks: 1
+  maxViewDistance: 50
+  meleeDistance: 10
+  hitDistance: 25
+  meleeDmg: 100
+  start: {x: 0, y: 0, z: 0}
+  start2: {x: 0, y: 0, z: 0}
 --- !u!1 &1605584659
 GameObject:
   m_ObjectHideFlags: 0
@@ -1345,8 +1402,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1694579423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1466,7 +1523,6 @@ GameObject:
   - component: {fileID: 2019984957}
   - component: {fileID: 2019984956}
   - component: {fileID: 2019984955}
-  - component: {fileID: 2019984954}
   - component: {fileID: 2019984953}
   m_Layer: 0
   m_Name: AIGuard 2
@@ -1500,38 +1556,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a702e872ad408eb43b1b55d87df3f9ec, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   health: 100
   objective: {fileID: 492397639}
   pc: {fileID: 254787461}
   numKills: {fileID: 391824648}
---- !u!114 &2019984954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019984950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b13f29e17031bf4c9d4be9d986dca6e, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  player: {fileID: 254787461}
-  playerTransform: {fileID: 254787460}
-  agent: {fileID: 2019984955}
-  target: {fileID: 2019984953}
-  distance: 0
-  objective: {fileID: 492397639}
-  objscript: {fileID: 1189455121}
-  healthPacks: 1
-  maxViewDistance: 50
-  meleeDistance: 10
-  hitDistance: 25
-  meleeDmg: 100
-  start: {x: 0, y: 0, z: 0}
-  start2: {x: 0, y: 0, z: 0}
 --- !u!195 &2019984955
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1605,12 +1635,12 @@ PrefabInstance:
     - target: {fileID: 150700255744400244, guid: b1773d9a9fb276745826ac85d848051e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value:
+      value: 
       objectReference: {fileID: 1337335434}
     - target: {fileID: 150700256578054277, guid: b1773d9a9fb276745826ac85d848051e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value:
+      value: 
       objectReference: {fileID: 1337335434}
     - target: {fileID: 150700257174407746, guid: b1773d9a9fb276745826ac85d848051e,
         type: 3}
@@ -1734,12 +1764,12 @@ PrefabInstance:
     - target: {fileID: 1110209279419163310, guid: ddfb386d43f8eb04f9b2e89858ab09f8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value:
+      value: 
       objectReference: {fileID: 1337335434}
     - target: {fileID: 1110209279453130855, guid: ddfb386d43f8eb04f9b2e89858ab09f8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value:
+      value: 
       objectReference: {fileID: 1337335434}
     - target: {fileID: 1110209279945102456, guid: ddfb386d43f8eb04f9b2e89858ab09f8,
         type: 3}
@@ -1863,7 +1893,7 @@ PrefabInstance:
     - target: {fileID: 1435606270791111391, guid: 903eda8ab9ee50245a39bb4b015e8647,
         type: 3}
       propertyPath: player
-      value:
+      value: 
       objectReference: {fileID: 254787461}
     - target: {fileID: 1435606271924290892, guid: 903eda8ab9ee50245a39bb4b015e8647,
         type: 3}
@@ -1997,12 +2027,12 @@ PrefabInstance:
     - target: {fileID: 4543321863757245705, guid: 4145bc27cc7635b4e90072f14da8af73,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value:
+      value: 
       objectReference: {fileID: 1337335434}
     - target: {fileID: 4543321863892504471, guid: 4145bc27cc7635b4e90072f14da8af73,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value:
+      value: 
       objectReference: {fileID: 1337335434}
     - target: {fileID: 4543321864022677813, guid: 4145bc27cc7635b4e90072f14da8af73,
         type: 3}
@@ -2126,12 +2156,12 @@ PrefabInstance:
     - target: {fileID: 4957790279014666870, guid: 2e2a99a6db946f246bc823102cd468fc,
         type: 3}
       propertyPath: UIbullets
-      value:
+      value: 
       objectReference: {fileID: 1143693284}
     - target: {fileID: 4957790279014666870, guid: 2e2a99a6db946f246bc823102cd468fc,
         type: 3}
       propertyPath: ammoSlider
-      value:
+      value: 
       objectReference: {fileID: 1662244758}
     - target: {fileID: 4957790279857553536, guid: 2e2a99a6db946f246bc823102cd468fc,
         type: 3}
@@ -2201,27 +2231,27 @@ PrefabInstance:
     - target: {fileID: 4957790279857553541, guid: 2e2a99a6db946f246bc823102cd468fc,
         type: 3}
       propertyPath: os
-      value:
+      value: 
       objectReference: {fileID: 1189455121}
     - target: {fileID: 4957790279857553541, guid: 2e2a99a6db946f246bc823102cd468fc,
         type: 3}
       propertyPath: crossHair
-      value:
+      value: 
       objectReference: {fileID: 1930217237}
     - target: {fileID: 4957790279857553541, guid: 2e2a99a6db946f246bc823102cd468fc,
         type: 3}
       propertyPath: scopedCross
-      value:
+      value: 
       objectReference: {fileID: 1247482234}
     - target: {fileID: 4957790279857553541, guid: 2e2a99a6db946f246bc823102cd468fc,
         type: 3}
       propertyPath: levelManager
-      value:
+      value: 
       objectReference: {fileID: 1337335434}
     - target: {fileID: 4957790279857553541, guid: 2e2a99a6db946f246bc823102cd468fc,
         type: 3}
       propertyPath: endScene
-      value:
+      value: 
       objectReference: {fileID: 1722444579}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e2a99a6db946f246bc823102cd468fc, type: 3}

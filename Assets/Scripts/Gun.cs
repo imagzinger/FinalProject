@@ -7,7 +7,7 @@ public class Gun : MonoBehaviour
 {
 
     [SerializeField] Camera fpsCam;
-    [SerializeField] Target target;
+    //[SerializeField] Target target;
     public int ammo = 0;
     public int initAmmo = 15;
     [SerializeField] ParticleSystem muzzleFlash;
